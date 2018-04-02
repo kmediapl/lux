@@ -20,6 +20,8 @@ Route::post('/zlecenia', 'ZleceniaController@store');
 Route::get('/zlecenia/edytuj/{id}', 'ZleceniaController@edit');
 Route::put('/zlecenia/update/{id}', 'ZleceniaController@update');
 
+//zleceniodawca
+Route::get('/zleceniodawcy', 'ZleceniodawcyController@index');
 
 //
 Route::post('/dologin', 'ZleceniaController@dologin');
