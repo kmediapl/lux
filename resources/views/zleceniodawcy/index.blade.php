@@ -7,8 +7,8 @@
 
 <table class="table">
 @foreach ($zleceniodawcy as $zleceniodawca)
-    <tr><td><a href="/zlecenia/{{ $zleceniodawca->id }}">{{ $zleceniodawca->nazwa }}</a></td><td>{{ $zleceniodawca->nazwa }}</td>
-        <td>{{ $zleceniodawca->ulica }}</td><td>{{ $zleceniodawca->nrdomulokalu }}</td><td>Przydziel pracowników</td></tr>
+    <tr><td><a href="/zleceniodawcy/{{ $zleceniodawca->id }}">{{ $zleceniodawca->nazwa }}</a></td><td>{{ $zleceniodawca->nazwa }}</td>
+        <td>{{ $zleceniodawca->ulica }}</td><td>{{ $zleceniodawca->nrdomulokalu }}</td><td><a href="/obiekty/">Obiekty zleceniodawcy</a></td></tr>
 @endforeach
 </table>
 {{-- {{ $zleceniodawcy->links() }} --}}

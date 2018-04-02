@@ -47,7 +47,7 @@ class ZleceniodawcyController extends Controller
      */
     public function show($id)
     {
-        $obiekt = \App\Zleceniodawca::find($id);
+        $zleceniodawca = \App\Zleceniodawca::find($id);
         return view ('zleceniodawcy.dane',['zleceniodawca'=>$zleceniodawca]);
     }
 
