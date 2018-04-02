@@ -67,9 +67,9 @@
           <span class="mdl-layout-title">Title</span>
           <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="/zlecenia">Zlecenia</a>
-            <a class="mdl-navigation__link" href="zleceniodawcy">Zleceniodawcy</a>
-            <a class="mdl-navigation__link" href="obiekty">Obiekty</a>
-            <a class="mdl-navigation__link" href="materialy">Materiały</a>
+            <a class="mdl-navigation__link" href="/zleceniodawcy">Zleceniodawcy</a>
+            <a class="mdl-navigation__link" href="/obiekty">Obiekty</a>
+            <a class="mdl-navigation__link" href="/materialy">Materiały</a>
           </nav>
         </div>
         <main class="mdl-layout__content">

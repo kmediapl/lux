@@ -19,9 +19,9 @@ class ObiektyTableSeeder extends Seeder
         $obiekt = new obiekt();
     
           $obiekt ->nazwa = $faker->company;
-          $obiekt ->id_zleceniodawcy = $faker->numberBetween(1-3);
+          $obiekt ->zleceniodawca_id = $faker->numberBetween(1,30);
           $obiekt ->ulica = $faker->streetName;
-          $obiekt ->nrdomulokalu = $faker->numberBetween(1-3);
+          $obiekt ->nrdomulokalu = $faker->numberBetween(1,20);
           $obiekt ->kodpocztowy = $faker->postcode;
           $obiekt ->miejscowosc = $faker->city;
           $obiekt ->telefon = $faker->phoneNumber;

@@ -11,8 +11,12 @@
 <li>{{$zleceniodawca->kodpocztowy}}</li>
 
 </ul>
-
-
+<ul>
+@foreach ($obiekty as $obiekt)
+<li>
+        {{$obiekt->nazwa}}::{{$obiekt->miejscowosc}}::{{$obiekt->ulica}}::<a href="/obiekty/{{$obiekt->id}}">Zobacz obiekt</a></li>
+@endforeach
+</ul>
 <a href="/zleceniodawcay/">Wszyscy zleceniodawcy</a><a href="/zleceniodawcy/edytuj/{{$zleceniodawca->id}}">Edycja</a>
 <form action="{{ url('/zleceniodawcy', ['id' => $zleceniodawca->id]) }}" method="post">
     <input type="hidden" name="_method" value="delete" />

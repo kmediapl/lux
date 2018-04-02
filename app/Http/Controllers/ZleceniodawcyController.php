@@ -25,7 +25,7 @@ class ZleceniodawcyController extends Controller
      */
     public function create()
     {
-        //
+        return view('zleceniodawcy.dodaj');
     }
 
     /**
@@ -48,7 +48,8 @@ class ZleceniodawcyController extends Controller
     public function show($id)
     {
         $zleceniodawca = \App\Zleceniodawca::find($id);
-        return view ('zleceniodawcy.dane',['zleceniodawca'=>$zleceniodawca]);
+        $obiekty = $zleceniodawca->obiekty;
+        return view ('zleceniodawcy.dane',['zleceniodawca'=>$zleceniodawca, 'obiekty'=>$obiekty]);
     }
 
     /**
@@ -59,7 +60,7 @@ class ZleceniodawcyController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('zleceniodawcy.edytuj', ['id'=>$id]);
     }
 
     /**

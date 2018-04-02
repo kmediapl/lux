@@ -23,6 +23,10 @@ Route::put('/zlecenia/update/{id}', 'ZleceniaController@update');
 //zleceniodawca
 Route::get('/zleceniodawcy', 'ZleceniodawcyController@index');
 Route::get('/zleceniodawcy/{id}', 'ZleceniodawcyController@show');
+Route::get('/zleceniodawcy/edytuj/{id}', 'ZleceniodawcyController@edit');
+Route::put('/zleceniodawcy/update/{id}', 'ZleceniodawcyController@update');
+Route::get('/zleceniodawca/dodaj', 'ZleceniodawcyController@create');
+Route::post('/zleceniodawcy', 'ZleceniodawcyController@store');
 
 //
 Route::post('/dologin', 'ZleceniaController@dologin');

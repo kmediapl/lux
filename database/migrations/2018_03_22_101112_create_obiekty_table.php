@@ -23,7 +23,7 @@ class CreateObiektyTable extends Migration
             $table->string('telefon');
             $table->string('uwagi');
             
-            $table->integer('id_zleceniodawcy')->unsigned();
+            $table->integer('zleceniodawca_id')->unsigned();
             $table->timestamps();
         });
     }
