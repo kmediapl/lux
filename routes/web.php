@@ -28,7 +28,13 @@ Route::put('/zleceniodawcy/update/{id}', 'ZleceniodawcyController@update');
 Route::get('/zleceniodawca/dodaj', 'ZleceniodawcyController@create');
 Route::post('/zleceniodawcy', 'ZleceniodawcyController@store');
 
+//inne 
+
+Route::get('/pracownicy/dodajdo/{id}', 'PracownicyController@dodajpracownika');
+Route::get('/pracownicy/dodajdozapisz/{idprac}/{idzlec}', 'PracownicyController@dodajdozapisz');
+Route::get('/pracownicy/odlacz/{idprac}', 'PracownicyController@odlacz');
 //
+
 Route::post('/dologin', 'ZleceniaController@dologin');
 //Route::get('/zlecenia', 'ZleceniaController@index');
 //Route::get('/zlecenia', 'ZleceniaApiController@index');

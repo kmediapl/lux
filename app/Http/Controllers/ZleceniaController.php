@@ -102,7 +102,8 @@ class ZleceniaController extends Controller
     public function show($id)
     {
         $zlecenie = Zlecenie::find($id);
-        return view ('zlecenia.dane',['zlecenie'=>$zlecenie]);
+        $pracownicy=\App\Zlecenie::find($id)->users()->get();
+        return view ('zlecenia.dane',['zlecenie'=>$zlecenie,'pracownicy'=>$pracownicy]);
     }
 
     /**

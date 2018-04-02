@@ -9,8 +9,16 @@
 
 
 </ul>
-
-
+<h3>Dodani pracownicy<a href="/pracownicy/dodajdo/{{$zlecenie->id}}">Dodaj pracownika</a></h3>
+<table class="table">
+     
+@foreach ($pracownicy as $pracownik)
+<tr>
+<td>{{$pracownik->id}}</td><td>{{$pracownik->imie}}</td><td><a href="/pracownicy/odlacz/{{$pracownik->id}}">Usuń pracownika</a></td>
+</tr>
+@endforeach
+      
+</table>
 <a href="/zlecenia/">Zlecenia</a><a href="/zlecenia/edytuj/{{$zlecenie->id}}">Edycja</a>
 <form action="{{ url('/zlecenia', ['id' => $zlecenie->id]) }}" method="post">
     <input type="hidden" name="_method" value="delete" />

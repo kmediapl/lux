@@ -8,7 +8,8 @@
 <table class="table">
 @foreach ($niezrealizowane as $obiekt)
     <tr><td><a href="/zlecenia/{{ $obiekt->id }}">{{ $obiekt->data_zlecenia }}</a></td><td>{{ $obiekt->nazwa }}</td>
-        <td>{{ $obiekt->ulica }}</td><td>{{ $obiekt->nrdomulokalu }}</td><td>Przydziel pracowników</td></tr>
+        <td>{{ $obiekt->ulica }}</td><td>{{ $obiekt->nrdomulokalu }}</td><td>
+                <a href="/pracownicy/dodajdo/{{ $obiekt->id }}">Przydziel pracowników</a></td></tr>
 @endforeach
 </table>
 {{ $niezrealizowane->links() }}

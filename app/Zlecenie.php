@@ -16,4 +16,8 @@ class Zlecenie extends Model
  {
      return $this->belongsToMany('App\User', 'zlecenia_pracownicy', 'zlecenia_id', 'user_id')->withTimestamps();
  }
+ public function materialy()
+ {
+     return $this->belongsToMany('App\Material', 'zlecenia_materialy', 'zlecenia_id', 'material_id')->withTimestamps();
+ }
 }
