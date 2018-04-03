@@ -20,6 +20,9 @@ Route::post('/zlecenia', 'ZleceniaController@store');
 Route::get('/zlecenia/edytuj/{id}', 'ZleceniaController@edit');
 Route::put('/zlecenia/update/{id}', 'ZleceniaController@update');
 
+Route::get('/plik','ZleceniaController@plik');
+Route::post('/uploads','ZleceniaController@uploads');
+
 //zleceniodawca
 Route::get('/zleceniodawcy', 'ZleceniodawcyController@index');
 Route::get('/zleceniodawcy/{id}', 'ZleceniodawcyController@show');
@@ -28,13 +31,24 @@ Route::put('/zleceniodawcy/update/{id}', 'ZleceniodawcyController@update');
 Route::get('/zleceniodawca/dodaj', 'ZleceniodawcyController@create');
 Route::post('/zleceniodawcy', 'ZleceniodawcyController@store');
 
-//inne 
+//pracownicy
 
 Route::get('/pracownicy/dodajdo/{id}', 'PracownicyController@dodajpracownika');
 Route::get('/pracownicy/dodajdozapisz/{idprac}/{idzlec}', 'PracownicyController@dodajdozapisz');
 Route::get('/pracownicy/odlacz/{idprac}', 'PracownicyController@odlacz');
 //
 
+
+
+//materialy
+Route::get('/materialy', 'MaterialyController@index');
+Route::get('/material/dodaj', 'MaterialyController@create');
+Route::post('/materialy', 'MaterialyController@store');
+
+Route::get('/materialy/dodajdo/{id}', 'MaterialyController@dodajmaterial');
+Route::get('/materialy/dodajdozapisz/{idmat}/{idzlec}', 'MaterialyController@dodajdozapisz');
+
+//
 Route::post('/dologin', 'ZleceniaController@dologin');
 //Route::get('/zlecenia', 'ZleceniaController@index');
 //Route::get('/zlecenia', 'ZleceniaApiController@index');

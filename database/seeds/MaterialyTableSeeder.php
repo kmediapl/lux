@@ -18,7 +18,7 @@ class MaterialyTableSeeder extends Seeder
     $material = new Material();
 
       $material ->nazwa = $faker->company;
-      $material ->id_zlecenia = $faker->randomDigitNotNull;
+     // $material ->id_zlecenia = $faker->randomDigitNotNull;
       $material ->opis = $faker->text(100);
       $material ->cena_zakupu = $faker->numberBetween(30-150);
       $material ->cena_dla_klienta = $faker->numberBetween(30-150);

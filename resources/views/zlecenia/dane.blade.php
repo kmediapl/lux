@@ -19,6 +19,15 @@
 @endforeach
       
 </table>
+<h3>Materiały<a href="/materialy/dodajdo/{{$zlecenie->id}}">Dodaj materiał/usługę</a></h3>
+<table class="table">
+
+@foreach ($materialy as $material)
+<tr>
+<td>{{$material->id}}</td><td>{{$material->nazwa}}</td><td>{{$material->cena}}</td><td><a href="/pracownicy/odlacz/{{$material->id}}">Usuń pracownika</a></td>
+</tr>
+@endforeach
+</table>
 <a href="/zlecenia/">Zlecenia</a><a href="/zlecenia/edytuj/{{$zlecenie->id}}">Edycja</a>
 <form action="{{ url('/zlecenia', ['id' => $zlecenie->id]) }}" method="post">
     <input type="hidden" name="_method" value="delete" />

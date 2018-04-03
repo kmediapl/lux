@@ -39,6 +39,13 @@ class ZleceniaController extends Controller
     
         // }
     }
+    public function plik() {
+        return view('zlecenia.plik');
+    }
+    public function uploads (Request $request) {
+        $plik = file($request->plik);
+        return $plik;
+    }
 
     public function index()
     {   
@@ -103,7 +110,8 @@ class ZleceniaController extends Controller
     {
         $zlecenie = Zlecenie::find($id);
         $pracownicy=\App\Zlecenie::find($id)->users()->get();
-        return view ('zlecenia.dane',['zlecenie'=>$zlecenie,'pracownicy'=>$pracownicy]);
+        $materialy = \App\Zlecenie::find($id)->materialy()->get();
+        return view ('zlecenia.dane',['zlecenie'=>$zlecenie,'pracownicy'=>$pracownicy,'materialy'=>$materialy]);
     }
 
     /**

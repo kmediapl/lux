@@ -6,6 +6,25 @@ use Illuminate\Http\Request;
 
 class MaterialyController extends Controller
 {
+    
+    
+    public function dodajmaterial($id) {
+
+        $zlecenie = \App\Zlecenie::find($id);
+        $materiaywzleceniu = \App\Zlecenie::find($id)->materialy()->get();
+        $materialy = \App\Material::all();
+        return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id,'materialywzleceniu'=>$materiaywzleceniu,'zlecenie'=>$zlecenie]);
+    }
+    public function dodajdozapisz($idmat,$idzlec) {
+
+
+        $material = \App\Zlecenie::find($idzlec)->materialy()->attach($idmat);
+        return redirect()->back();
+
+        // $materialy = \App\Material::all();
+        // return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id]);
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +32,8 @@ class MaterialyController extends Controller
      */
     public function index()
     {
-        //
+        $materialy = \App\Material::paginate(25);
+        return view ('materialy.index',['materialy'=>$materialy]);
     }
 
     /**
@@ -23,7 +43,7 @@ class MaterialyController extends Controller
      */
     public function create()
     {
-        //
+       return view ('materialy.dodaj');
     }
 
     /**
@@ -34,7 +54,12 @@ class MaterialyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $material = new \App\Material;
+        $dane = $request->all();
+        $material->create($dane);
+        
+        return 'Zapisano';
     }
 
     /**

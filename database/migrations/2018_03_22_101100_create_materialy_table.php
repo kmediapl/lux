@@ -15,11 +15,10 @@ class CreateMaterialyTable extends Migration
     {
         Schema::create('materialy', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_zlecenia')->unsigned();
             $table->string('nazwa');
-            $table->string('opis');
-            $table->string('cena_zakupu');
-            $table->string('cena_dla_klienta');
+            $table->string('opis')->nullable();
+            $table->string('cena_zakupu')->nullable();
+            $table->string('cena_dla_klienta')->nullable();
             $table->timestamps();
         });
     }
