@@ -43,8 +43,11 @@ class ZleceniaController extends Controller
         return view('zlecenia.plik');
     }
     public function uploads (Request $request) {
-        $plik = file($request->plik);
-        return $plik;
+        $katalog = date("m_y"); 
+        $request->file('plik')->store($katalog);
+        $path = $request->file('plik')->getClientOriginalName();
+        $rozmiar = $request->file('plik')->getClientSize();
+        return 'OK'.$path.':::'.$rozmiar;
     }
 
     public function index()

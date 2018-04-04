@@ -19,6 +19,10 @@
 @endforeach
       
 </table>
+<hr>
+<h3>Materialy test</h3>
+<materialy></materialy>
+</hr>
 <h3>Materiały<a href="/materialy/dodajdo/{{$zlecenie->id}}">Dodaj materiał/usługę</a></h3>
 <table class="table">
 

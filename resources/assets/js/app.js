@@ -7,6 +7,7 @@
  import Vue from 'vue'
  import VueRouter from 'vue-router'
  import Vuetify from 'vuetify'
+ 
 
  Vue.use(Vuetify)
  Vue.use(VueRouter)
@@ -24,6 +25,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('szablon', require('./components/Szablon.vue'));
 Vue.component('zlecenia', require('./components/zlecenia.vue'));
 Vue.component('login', require('./components/login.vue'));
+Vue.component('materialy', require('./components/materialy.vue'));
 
 const app = new Vue({
     el: '#app'
