@@ -6,22 +6,22 @@
 <h1>Dodaj obiekt</h1>
 
 {{Form::open(['url' => 'obiekty', 'method' => 'post'])}}
-{{Form::label('email', 'E-Mail Address')}}
-{{Form::text('nazwa', 'nazwa',['class' => 'forminput'])}}<br>
-{{Form::label('email', 'E-Mail Address')}}
-{{Form::text('ulica', 'ulica',['class' => 'forminput'])}}<br>
-{{Form::label('email', 'E-Mail Address')}}
-{{Form::text('nrdomulokalu', 'nrdomulokalu',['class' => 'forminput'])}}<br>
-{{Form::label('email', 'E-Mail Address')}}
-{{Form::text('kodpocztowy', 'kodpocztowy',['class' => 'forminput'])}}<br>
-{{Form::label('email', 'E-Mail Address')}}
-{{Form::text('miejscowosc', 'miejscowosc',['class' => 'forminput'])}}<br>
-{{Form::label('email', 'E-Mail Address')}}
-{{Form::text('telefon', 'telefon',['class' => 'forminput'])}}<br>
-{{Form::label('email', 'E-Mail Address')}}
-{{Form::text('uwagi', 'uwagi',['class' => 'forminput'])}}<br>
-{{Form::label('email', 'E-Mail Address')}}
-<select name="id_zleceniodawcy" >
+{{Form::label('nazwa', 'Nazwa obiektu')}}
+{{Form::text('nazwa', null,['class' => 'forminput','placeholder' =>'nazwa'])}}<br>
+{{Form::label('ulica', 'Ulica')}}
+{{Form::text('ulica',null ,['class' => 'forminput','placeholder' =>'ulica'])}}<br>
+{{Form::label('nrdomulokalu', 'Numer domu \ lokalu')}}
+{{Form::text('nrdomulokalu',null ,['class' => 'forminput','placeholder' =>'nrdomulokalu'])}}<br>
+{{Form::label('kodpocztowy', 'Kodpocztowy')}}
+{{Form::text('kodpocztowy',null ,['class' => 'forminput','placeholder' =>'kodpocztowy'])}}<br>
+{{Form::label('miejscowosc', 'Miejscowość')}}
+{{Form::text('miejscowosc',null ,['class' => 'forminput','placeholder' =>'miejscowosc'])}}<br>
+{{Form::label('telefon', 'Telefon')}}
+{{Form::text('telefon', null,['class' => 'forminput','placeholder' =>'telefon'])}}<br>
+{{Form::label('uwagi', 'Uwago')}}
+{{Form::text('uwagi',null ,['class' => 'forminput','placeholder' =>'uwagi'])}}<br>
+{{Form::label('zleceniodawca_id', 'Zleceniodawca')}}
+<select name="zleceniodawca_id" >
     @foreach ($zleceniodawcy as $zlecenodawca)
 <option value="{{$zlecenodawca->id}}">{{$zlecenodawca->nazwa}}</option>
     @endforeach
