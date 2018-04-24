@@ -12,7 +12,10 @@
 */
 
 //zlecenia
-Route::get('/', 'ZleceniaController@index');
+Route::get('/', function () {
+    return 'dasdasds';
+});
+//Route::get('/', 'ZleceniaController@index');
 Route::get('/zlecenia', 'ZleceniaController@index');
 Route::get('/zlecenia/{id}', 'ZleceniaController@show');
 Route::get('/zlecenie/dodaj', 'ZleceniaController@create');
@@ -66,3 +69,10 @@ Route::get('/obiekt/dodaj', 'ObiektyController@create');
 Route::post('/obiekty', 'ObiektyController@store');
 Route::get('/obiekty/edytuj/{id}', 'ObiektyController@edit');
 Route::put('/obiekty/update/{id}', 'ObiektyController@update');
+
+
+
+//mobilne 
+Route::get('/appmobile', function () {
+    return view('mobilne.index');
+});
