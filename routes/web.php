@@ -12,10 +12,8 @@
 */
 
 //zlecenia
-Route::get('/', function () {
-    return 'dasdasds';
-});
-//Route::get('/', 'ZleceniaController@index');
+
+Route::get('/', 'ZleceniaController@index');
 Route::get('/zlecenia', 'ZleceniaController@index');
 Route::get('/zlecenia/{id}', 'ZleceniaController@show');
 Route::get('/zlecenie/dodaj', 'ZleceniaController@create');
@@ -73,6 +71,6 @@ Route::put('/obiekty/update/{id}', 'ObiektyController@update');
 
 
 //mobilne 
-Route::get('/appmobile', function () {
+Route::get('/appmobile/{any}', function () {
     return view('mobilne.index');
-});
+})->where('any', '.*');;

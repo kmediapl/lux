@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        I'm an example component.<router-link :to="{path:'/appmobile/danezlecenia/'+123, params:{id:'23'}}"><v-btn  >Pokaż </v-btn></router-link>
                     </div>
                 </div>
             </div>

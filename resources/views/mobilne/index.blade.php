@@ -1,4 +1,8 @@
 @extends('layouts.mobile')
 @section('content')
-<login/>
+
+<v-app >
+<belka></belka>
+<router-view></router-view>
+</v-app>
 @endsection

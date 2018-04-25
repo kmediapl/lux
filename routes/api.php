@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/zlecenia', 'ZleceniaApiController@index');
 Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
+Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
 Route::post('/mojezlecenia/zrealizuj/{id}/{user}', 'ZleceniaApiController@zrealizujzlecenie');

@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "vue-router": "^3.0.1",
-        "vuetify": "^1.0.10"
+        "vuetify": "^1.0.10",
+        "vuetify-upload-button": "^0.1.2"
     }
 }

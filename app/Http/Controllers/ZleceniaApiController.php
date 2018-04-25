@@ -36,7 +36,12 @@ class ZleceniaApiController extends Controller
         //return $zlecenia;
         return  response()->json($zlecenia);
     }
+    public function pokazzlecenie($id) {
+        $zlecenie = Zlecenie::find($id);
+      
 
+        return  response()->json($zlecenie);
+    }
     public function zrealizujzlecenie($id,$user) {
         $zlecenie = Zlecenie::find($id);
         $zlecenie->czy_zrealizowane = true;
