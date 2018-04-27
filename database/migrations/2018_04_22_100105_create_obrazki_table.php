@@ -17,8 +17,8 @@ class CreateObrazkiTable extends Migration
             $table->increments('id');
             $table->string('nazwaobrazka');
             $table->string('link');
-            $table->intiger('user_id')->unsigned()->nullable();;
-            $table->intiger('zlecenie_id')->unsigned()->nullable();;
+            $table->integer('user_id')->unsigned()->nullable();;
+            $table->integer('zlecenie_id')->unsigned()->nullable();;
             $table->timestamps();
         });
     }

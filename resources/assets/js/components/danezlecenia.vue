@@ -14,7 +14,14 @@
       <v-card-text>{{posts.kilometry_koszt}}</v-card-text>
       <v-card-text>{{posts.czy_zrealizowane}} ::       <v-btn small color="error">Zrealizuj zlecenie</v-btn></v-card-text>
            <v-card-text>{{posts.kto_zrealizowal}}</v-card-text>
-<upload-btn title="Dodaj zdjęcia do zlecenia"></upload-btn>
+           <v-card  >11
+                            <div v-if=image>
+                              <img :src="image" class="img-responsive" height="70" width="90">
+                            </div>
+                           </v-card>
+             <input type="file" @change="onImageChange"/>
+             <v-btn @click="uploadImage"> Upload</v-btn>
+<!-- <upload-btn title="Dodaj zdjęcia do zlecenia" fileChangedCallback="handleFileChang()"></upload-btn> -->
    <v-card-text>{{posts.opis}}</v-card-text>
      </v-card>
  </v-container>
@@ -22,20 +29,41 @@
 
 <script>
 import axios from 'axios';
-  import UploadButton from 'vuetify-upload-button';
+
 
 export default {
     data: function() {
     return {
         props:['id'],
          posts: [],
-         id:'',
-         linki:''
+       
+         image:''
   
     }
   },
-  components: {
-      'upload-btn': UploadButton
+ 
+    methods: {
+             onImageChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length)
+                    return;
+                this.createImage(files[0]);
+            },
+            
+            createImage(file) {
+                let reader = new FileReader();
+                let vm = this;
+                reader.onload = (e) => {
+                    vm.image = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            },
+            uploadImage(){
+                axios.post('http://127.0.0.1:8000/appmobile/pliki',{image: this.image, id_zlec:this.posts.id}).then(response => {
+                   console.log(response);
+                });
+
+            }
     },
     created() {
         let linki='12'

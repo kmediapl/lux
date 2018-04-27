@@ -42,7 +42,7 @@ Route::get('/pracownicy/odlacz/{idprac}', 'PracownicyController@odlacz');
 
 
 //materialy
-Route::get('/materialy', 'MaterialyController@index');
+// Route::get('/materialy', 'MaterialyController@index');
 Route::get('/material/dodaj', 'MaterialyController@create');
 Route::post('/materialy', 'MaterialyController@store');
 
@@ -73,4 +73,12 @@ Route::put('/obiekty/update/{id}', 'ObiektyController@update');
 //mobilne 
 Route::get('/appmobile/{any}', function () {
     return view('mobilne.index');
-})->where('any', '.*');;
+})->where('any', '.*');
+Route::post('/appmobile/pliki','PlikiController@store');
+// Route::post('/appmobile/pliki', function () {
+//     return 'ttt';
+// });
+
+Route::get('/materialy', function () {
+    return view('mobilne.mat');
+});

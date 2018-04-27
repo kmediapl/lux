@@ -50,6 +50,7 @@ class ZleceniaApiController extends Controller
 
         return  response()->json($zlecenie);
     }
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -5,7 +5,7 @@
       {{error.message}}
     </li>
   </ul>
-      <span v-on:click="dodajwiersz">Dodaj</span>
+      <v-btn v-on:click="dodajwiersz">Dodaj</v-btn>
       <table class="table">
           <thead>
               <th>Nazwa materiału
@@ -27,7 +27,7 @@
         
             
             </td>
-            <td><input type="text" placeholder="Ilość"></td>
+            <td><input type="text" placeholder="Ilość">{{material.title}}</td>
             <td><input type="text" placeholder="Cena zakupu"></td>
             <td><input type="text" placeholder="Cena dla klienta"></td>
             </tr>
@@ -76,11 +76,12 @@ export default {
     },
         dodajwiersz: function(){
            this.wiersze.push({
-               nazwa:null,
-               ilosc:null,
+               nazwa:'',
+               ilosc:'',
                cena:null,
                cenakl:null
-           })
+           });
+            // this.wiersze=''
         }
 
     }

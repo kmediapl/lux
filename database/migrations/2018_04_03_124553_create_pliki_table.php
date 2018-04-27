@@ -16,8 +16,8 @@ class CreatePlikiTable extends Migration
         Schema::create('pliki', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('zlecenia_id')->unsigned()->nullable();
-            $table->string('nazwa');
-            $table->string('link');
+            $table->string('nazwa')->nullable();;
+            $table->string('link')->nullable();;
             $table->timestamps();
         });
     }
