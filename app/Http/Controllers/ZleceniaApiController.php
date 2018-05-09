@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Zlecenie;
 use App\User;
+use App\Material;
 use Illuminate\Http\Request;
 
 class ZleceniaApiController extends Controller
@@ -116,4 +117,22 @@ class ZleceniaApiController extends Controller
     {
         //
     }
+    public function dobazy(Request $request)
+{
+    $zlecenie = $request->all();
+
+    
+    
+    foreach ($zlecenie as $track) {
+
+        $dane = new Material;
+        $dane->nazwa=$track->nazwa;
+        $dane->opis=$track->opis;
+        $dane->cena_zakupu=$track->cena_zakupu;
+        $dane->cena_dla_klienta=$track->cena_dla_klienta;
+        $dane->save();
+       
+    }
+    return  response()->json($dane);
+}
 }

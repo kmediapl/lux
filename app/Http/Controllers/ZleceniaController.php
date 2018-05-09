@@ -90,7 +90,7 @@ class ZleceniaController extends Controller
             'rodzaj_uslugi' => 'required',
             'id_zleceniodawcy' => 'required',
             'kilometry' => 'required',
-            'kilometry_koszt' => 'required',
+            // 'kilometry_koszt' => 'required',
 
         ]);
         $zlecenie = new Zlecenie;

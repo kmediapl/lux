@@ -1,8 +1,14 @@
-@extends('layouts.aplikacja')
+@extends('layouts.aplikacja1')
 
 @section('content')
 <div class="container">
         <div class="karta">
+            <pre>
+            {{-- {{print_r($a)}} --}}
+            </pre>
+                @foreach($praczlec as $dana)
+                {{$dana->id}}:::
+                @endforeach
     <table class="table">
     @foreach($pracownicy as $pracownik)
     <tr>

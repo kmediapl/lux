@@ -16,8 +16,19 @@
               </th>
                <th>Cena dla klienta
               </th>
+               <th>___
+              </th>
           </thead>
-        <tr v-for="(wiersz, index) in wiersze">  <td>
+          <tr>
+              <td>-</td> <td>-</td
+              ><td>-</td> 
+              <td>-</td>
+              <td><button class="ui orange icon button" @click="dodajwiersz">
+  <i class="add icon"></i>
+</button></td>
+          </tr>
+        <tr v-for="(wiersz, index) in wiersze">  
+            <!-- <td>
             
             <select v-model="materialy">
                 <option>dsadas</option>
@@ -25,13 +36,20 @@
             </select>
 
         
-            
-            </td>
-            <td><input type="text" placeholder="Ilość">{{material.title}}</td>
-            <td><input type="text" placeholder="Cena zakupu"></td>
-            <td><input type="text" placeholder="Cena dla klienta"></td>
+          
+            </td> -->
+            <td><input v-model="wiersz.nazwa" type="text" placeholder="Ilość"></td>
+            <td><input v-model="wiersz.cena" type="text" placeholder="Cena zakupu"></td>
+            <td><input v-model="wiersz.ilosc" type="text" placeholder="Cena dla klienta"></td>
+            <td><input v-model="wiersz.cenakl" type="text" placeholder="Cena dla klienta"></td>
+             <td><button class="ui orange icon button" @click="dodajwiersz">
+  <i class="add icon"></i>
+</button></td>
             </tr>
       </table>
+      <!-- <ul>
+         <li v-for="material in  posts"> {{material.title}}</li>
+      </ul> -->
   </div>
 </template>
 
@@ -82,6 +100,19 @@ export default {
                cenakl:null
            });
             // this.wiersze=''
+        },
+        zapisz: function(){
+             axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
         }
 
     }

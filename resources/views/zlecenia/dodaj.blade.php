@@ -1,5 +1,5 @@
 
-@extends('layouts.aplikacja')
+@extends('layouts.aplikacja1')
 @section('content')
 <div class="container">
         <div class="karta">
@@ -13,37 +13,44 @@
         </ul>
     </div>
 @endif
-{{Form::open(['url' => 'zlecenia', 'method' => 'post'])}}
+{{Form::open(['url' => 'zlecenia', 'method' => 'post','class'=>"ui form"])}}
 <div class="form-group">
 {{Form::label('nazwa', 'Nazwa zlecenia')}}
 {{Form::text('nazwa',null,['class' => 'form-control', 'placeholder' => 'Podaj nazwę zlecenia'])}}<br>
 </div>
-<div class="form-group">
+<div class="three fields">
+    <div class="field">
 {{Form::label('data_zlecenia', 'Data zlecenia')}}
-{{Form::text('data_zlecenia', null,['class' => 'form-control','placeholder' => date('Y-m-d H:i:s')])}}<br>
+
+{{Form::text('data_zlecenia', null,['class' => 'form-control','placeholder' => date('Y-m-d H:i:s')])}}
+</div>
+<div class="field">
 {{Form::label('data_rozpoczecia', 'Data rozpoczęcia')}}
 {{Form::text('data_rozpoczecia', null,['class' => 'form-control','placeholder' => date('Y-m-d H:i:s')])}}<br>
+</div>
+<div class="field">
 {{Form::label('data_zakonczenia', 'Data zakończenia')}}
 {{Form::text('data_zakonczenia', null,['class' => 'form-control','placeholder' => date('Y-m-d H:i:s')])}}<br>
-</div>
+</div></div>
+<div class="inline fields">
 {{Form::label('rodzaj_instalacji', 'Rodzaj instalacji')}}<br>
 
 @foreach ($rodzajeinstalacji as $rodzaj)
 {{Form::label($rodzaj->nazwa, $rodzaj->nazwa)}}
 {{ Form::radio('rodzaj_instalacji', $rodzaj->nazwa)}}
 @endforeach
-<br>
+        </div>
 
-
+        <div class="inline fields">
 {{Form::label('rodzaj_uslugi', 'Rodzaj usługi')}}<br>
 
 @foreach ($rodzajeuslug as $rodzaj)
 {{Form::label($rodzaj->nazwa, $rodzaj->nazwa)}}
 {{ Form::radio('rodzaj_uslugi', $rodzaj->nazwa)}}
 @endforeach
-<br>
+        </div>
 <div class="form-group">
-{{Form::label('id_zleceniodawcy', 'Zleceniodawca',['class' => 'form-control'])}}
+{{Form::label('id_zleceniodawcy', 'Zleceniodawca')}}
 <select name="id_zleceniodawcy" id="id_zleceniodawcy">
     @foreach ($zleceniodawcy as $zlecenodawca)
 <option value="{{$zlecenodawca->id}}">{{$zlecenodawca->nazwa}}</option>
