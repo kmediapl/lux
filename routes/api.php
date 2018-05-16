@@ -13,11 +13,35 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('jwt.auth')->get('users', function(Request $request) {
+    return auth()->user();
 });
+
+// Route::middleware('jwt.auth')->get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
+
 Route::get('/zlecenia', 'ZleceniaApiController@index');
-Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
-Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
+// Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
+// Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
 Route::post('/mojezlecenia/zrealizuj/{id}/{user}', 'ZleceniaApiController@zrealizujzlecenie');
 Route::post('/dobazy', 'ZleceniaApiController@dobazy');
+
+Route::post('user/register', 'UserController@register');
+Route::post('user/login', 'UserController@logowanie');
+
+// Route::post('auth/login', 'APILoginController@login');
+// Route::group(['middleware' => 'jwt.auth'], function(){
+//   Route::get('auth/user', 'APILoginController@user');
+// });
+Route::get('auth/user', function(Request $request) {
+    return auth()->user();
+});
+Route::post('auth/logout', 'AuthController@logout');
+Route::group(['middleware' => 'jwt.refresh'], function(){
+  Route::get('auth/refresh', 'APILoginController@refresh');
+});
+// Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
+Route::group(['middleware' => 'jwt.auth'], function(){
+    Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
+    Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
+});
+
