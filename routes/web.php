@@ -40,6 +40,7 @@ Route::get('/pracownicy/odlacz/{idprac}', 'PracownicyController@odlacz');
 //
 
 
+Route::get('/pracownicy/dodaj', '\App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
 
 //materialy
 // Route::get('/materialy', 'MaterialyController@index');

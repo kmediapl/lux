@@ -35,7 +35,7 @@ Route::post('user/login', 'UserController@logowanie');
 Route::get('auth/user', function(Request $request) {
     return auth()->user();
 });
-Route::post('auth/logout', 'AuthController@logout');
+
 Route::group(['middleware' => 'jwt.refresh'], function(){
   Route::get('auth/refresh', 'APILoginController@refresh');
 });
@@ -43,5 +43,8 @@ Route::group(['middleware' => 'jwt.refresh'], function(){
 Route::group(['middleware' => 'jwt.auth'], function(){
     Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
     Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
+    Route::get('/materialy', 'MaterialyController@indexapi');
 });
 
+Route::post('/materialy', 'MaterialyController@dodajdozapiszapi');
+Route::get('/materialywzleceniu/{id}', 'MaterialyController@materialywzleceniu');

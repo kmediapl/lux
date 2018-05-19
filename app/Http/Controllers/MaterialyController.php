@@ -24,7 +24,21 @@ class MaterialyController extends Controller
         // $materialy = \App\Material::all();
         // return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id]);
     }
-    
+    public function dodajdozapiszapi(Request $request) {
+
+        $idmat=$request->idmat;
+        $idzlec=$request->idzlec;
+        $material = \App\Zlecenie::find($idzlec)->materialy()->attach($idmat);
+        return  response()->json($material);
+
+        // $materialy = \App\Material::all();
+        // return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id]);
+    }
+    public function materialywzleceniu($id) {
+        // $id=$request->idzlec;
+        $materiaywzleceniu = \App\Zlecenie::find($id)->materialy()->get();
+        return  response()->json($materiaywzleceniu);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,6 +48,12 @@ class MaterialyController extends Controller
     {
         $materialy = \App\Material::paginate(25);
         return view ('materialy.index',['materialy'=>$materialy]);
+    }
+    public function indexapi()
+    {
+         $materialy = \App\Material::all();
+              
+        return  response()->json($materialy);
     }
 
     /**
