@@ -79,7 +79,7 @@ class MaterialyController extends Controller
         $dane = $request->all();
         $material->create($dane);
         
-        return 'Zapisano';
+        return redirect('materialy');
     }
 
     /**
@@ -124,6 +124,8 @@ class MaterialyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $material = \App\Material::find($id);
+        $material->delete();
+        return redirect('materialy');
     }
 }

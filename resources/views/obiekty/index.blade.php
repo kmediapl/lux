@@ -1,5 +1,5 @@
 
-@extends('layouts.aplikacja')
+@extends('layouts.aplikacja1')
 @section('content')
 <div class="container">
         <div class="karta">

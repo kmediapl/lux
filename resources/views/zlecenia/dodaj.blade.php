@@ -21,12 +21,24 @@
 <div class="three fields">
     <div class="field">
 {{Form::label('data_zlecenia', 'Data zlecenia')}}
+<div class="ui calendar" id="example1">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input type="text" placeholder="Data zlecenia" name="data_zlecenia">
+        </div>
+      </div>
 
-{{Form::text('data_zlecenia', null,['class' => 'form-control','placeholder' => date('Y-m-d H:i:s')])}}
 </div>
 <div class="field">
 {{Form::label('data_rozpoczecia', 'Data rozpoczęcia')}}
-{{Form::text('data_rozpoczecia', null,['class' => 'form-control','placeholder' => date('Y-m-d H:i:s')])}}<br>
+<div class="ui calendar" id="example2">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input type="text" placeholder="Data rozpoczęcia" name="data_rozpoczecia">
+        </div>
+      </div>
+
+
 </div>
 <div class="field">
 {{Form::label('data_zakonczenia', 'Data zakończenia')}}
@@ -51,12 +63,27 @@
         </div>
 <div class="form-group">
 {{Form::label('id_zleceniodawcy', 'Zleceniodawca')}}
-<select name="id_zleceniodawcy" id="id_zleceniodawcy">
+{{-- <select name="id_zleceniodawcy" id="id_zleceniodawcy">
     @foreach ($zleceniodawcy as $zlecenodawca)
 <option value="{{$zlecenodawca->id}}">{{$zlecenodawca->nazwa}}</option>
     @endforeach
-</select>
+</select> --}}
 </div>
+
+<div class="ui selection dropdown">
+        <input type="hidden" name="zleceniodawca">
+        <i class="dropdown icon"></i>
+        <div class="default text">Gender</div>
+        <div class="menu">
+                @foreach ($zleceniodawcy as $zlecenodawca)
+                <div class="item" data-value="{{$zlecenodawca->id}}">{{$zlecenodawca->nazwa}}</div>
+                    @endforeach
+         
+   
+        </div>
+      </div>
+
+
 <br>
 {{Form::label('kilometry', 'Ilość kilometrów')}}
 {{Form::text('kilometry', null,['class' => 'forminput', 'placeholder' => 'Ilość kilometrów'])}}<br>

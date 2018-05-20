@@ -43,10 +43,10 @@ Route::get('/pracownicy/odlacz/{idprac}', 'PracownicyController@odlacz');
 Route::get('/pracownicy/dodaj', '\App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
 
 //materialy
-// Route::get('/materialy', 'MaterialyController@index');
+Route::get('/materialy', 'MaterialyController@index');
 Route::get('/material/dodaj', 'MaterialyController@create');
 Route::post('/materialy', 'MaterialyController@store');
-
+Route::delete('/materialy/{id}', 'MaterialyController@destroy');
 Route::get('/materialy/dodajdo/{id}', 'MaterialyController@dodajmaterial');
 Route::get('/materialy/dodajdozapisz/{idmat}/{idzlec}', 'MaterialyController@dodajdozapisz');
 
@@ -80,6 +80,6 @@ Route::post('/appmobile/pliki','PlikiController@store');
 //     return 'ttt';
 // });
 
-Route::get('/materialy', function () {
-    return view('mobilne.mat');
-});
+// Route::get('/materialy', function () {
+//     return view('mobilne.mat');
+// });

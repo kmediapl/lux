@@ -36,7 +36,25 @@ class ZleceniodawcyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        
+        $validatedData= $request->validate([
+            'nazwa' => 'required',
+            'miejscowosc' => 'required',
+            'nrdomulokalu' => 'required',
+            'ulica' => 'required',
+            'kodpocztowy' => 'required',
+            'telefon' => 'required',
+            'email' => 'required',
+            'nip' => 'required',
+
+        ]);
+        // $dane=$request->all();
+        
+        $zleceniodawca= new \App\Zleceniodawca;
+      
+        $zleceniodawca->create($validatedData);
+        return redirect()->back();
     }
 
     /**
@@ -83,6 +101,6 @@ class ZleceniodawcyController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
     }
 }
