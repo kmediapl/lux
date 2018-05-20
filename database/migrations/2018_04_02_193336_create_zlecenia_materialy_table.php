@@ -19,6 +19,9 @@ class CreateZleceniaMaterialyTable extends Migration
             $table->foreign('zlecenia_id')->references('id')->on('zlecenia')->onDelete('cascade');
             $table->integer('material_id')->unsigned()->nullable();
             $table->foreign('material_id')->references('id')->on('materialy')->onDelete('cascade');
+            $table->integer('cena_materialu')->nullable();
+            $table->integer('cena_dla_klienta')->nullable();
+            $table->integer('ilosc')->nullable();
             $table->timestamps();
         });
     }

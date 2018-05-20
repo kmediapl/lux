@@ -13,6 +13,12 @@
                                 <div class="eight wide column">
                                                 <div class="ui segment">
                                                         Nadchodzące zlecenia
+                                                        <table class="ui celled striped table">
+                                                        @foreach ($nadchodzacezlecenia as $obiekt1)
+    <tr><td><a href="/zlecenia/{{ $obiekt1->id }}">{{ $obiekt1->data_zlecenia }}</a></td><td>{{ $obiekt1->nazwa }}</td>
+       <td><a href="/zlecenia/{{ $obiekt1->id }}">Szczegóły</a></td></tr>
+@endforeach
+                                                        </table>
                                                 </div>
                                 </div>
                                 <div class="eight wide column">

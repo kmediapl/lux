@@ -52,9 +52,9 @@ class ZleceniaController extends Controller
 
     public function index()
     {   
-        $niezrealizowane = Zlecenie::where('czy_zrealizowane','=',true)->paginate(10);
-       
-        return view('zlecenia.index',['niezrealizowane'=>$niezrealizowane]);
+        $niezrealizowane = Zlecenie::where('czy_zrealizowane','=',true)->orderBy('created_at', 'asc')->paginate(10);
+        $nadchodzacezlecenia =  Zlecenie::where('czy_zrealizowane','=',false)->orderBy('data_zlecenia', 'asc')->paginate(10); 
+        return view('zlecenia.index',['niezrealizowane'=>$niezrealizowane,'nadchodzacezlecenia'=>$nadchodzacezlecenia]);
     }
 
     /**
@@ -88,7 +88,7 @@ class ZleceniaController extends Controller
             'data_zakonczenia' => 'required',
             'rodzaj_instalacji' => 'required',
             'rodzaj_uslugi' => 'required',
-            'id_zleceniodawcy' => 'required',
+            'zleceniodawca_id' => 'required',
             'kilometry' => 'required',
             // 'kilometry_koszt' => 'required',
 
@@ -148,6 +148,9 @@ class ZleceniaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $zlecenia= \App\Zlecenie::find($id);
+        $zlecenia->delete();
+        
+        return redirect('/zlecenia');
     }
 }

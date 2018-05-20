@@ -41,8 +41,13 @@
 
 </div>
 <div class="field">
-{{Form::label('data_zakonczenia', 'Data zakończenia')}}
-{{Form::text('data_zakonczenia', null,['class' => 'form-control','placeholder' => date('Y-m-d H:i:s')])}}<br>
+{{Form::label('data_zakonczenia', 'Data ')}}
+<div class="ui calendar" id="example3">
+    <div class="ui input left icon">
+      <i class="calendar icon"></i>
+      <input type="text" placeholder="Data zakończenia" name="data_zakonczenia">
+    </div>
+  </div>
 </div></div>
 <div class="inline fields">
 {{Form::label('rodzaj_instalacji', 'Rodzaj instalacji')}}<br>
@@ -53,10 +58,12 @@
 @endforeach
         </div>
 
-        <div class="inline fields">
-{{Form::label('rodzaj_uslugi', 'Rodzaj usługi')}}<br>
+        <div class="inline field">
+                {{-- <div class="field"> --}}
+{{Form::label('rodzaj_uslugi', 'Rodzaj usługi')}}
 
 @foreach ($rodzajeuslug as $rodzaj)
+
 {{Form::label($rodzaj->nazwa, $rodzaj->nazwa)}}
 {{ Form::radio('rodzaj_uslugi', $rodzaj->nazwa)}}
 @endforeach
@@ -69,9 +76,9 @@
     @endforeach
 </select> --}}
 </div>
-
+<div class="field">
 <div class="ui selection dropdown">
-        <input type="hidden" name="zleceniodawca">
+        <input type="hidden" name="zleceniodawca_id">
         <i class="dropdown icon"></i>
         <div class="default text">Gender</div>
         <div class="menu">
@@ -84,16 +91,20 @@
       </div>
 
 
-<br>
+    </div>
+<div class="two fields">
+<div class="field">
 {{Form::label('kilometry', 'Ilość kilometrów')}}
-{{Form::text('kilometry', null,['class' => 'forminput', 'placeholder' => 'Ilość kilometrów'])}}<br>
-{{Form::label('kilometry_koszt', 'E-Mail Address')}}
-{{Form::text('kilometry_koszt', null,['class' => 'forminput', 'placeholder' => 'Koszt 100 kilemetrów'])}}<br>
+{{Form::text('kilometry', null,['class' => 'forminput', 'placeholder' => 'Ilość kilometrów'])}}
+</div>
+<div class="field">
+{{Form::label('kilometry_koszt', 'Koszt kilometrów')}}
+{{Form::text('kilometry_koszt', null,['class' => 'forminput', 'placeholder' => 'Koszt 100 kilometrów'])}}
+</div></div>
+<div class="field">
 {{Form::label('opis', 'Opis')}}
-{{Form::text('opis',null ,['class' => 'forminput', 'placeholder' => 'Opis, uwagi do zlecenia'])}}<br>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Zapisz
-      </button>
+{{Form::text('opis',null ,['class' => 'forminput', 'placeholder' => 'Opis, uwagi do zlecenia'])}}</div>
+<button class="ui purple button">ZAPISZ</button>
 {!! Form::close() !!}
         </div>
 </div>

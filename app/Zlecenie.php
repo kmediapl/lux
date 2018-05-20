@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Zlecenie extends Model
 {
   protected $table = 'zlecenia';
+
   protected $fillable = ['nazwa','data_zlecenia','data_rozpoczecia','data_zakonczenia','nazwa','rodzaj_uslugi','rodzaj_instalacji','zleceniodawca_id','kilometry',
 'kilometry_koszt','czy_zrealizowane','kto_zrealizowal','opis'
 

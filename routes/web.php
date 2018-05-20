@@ -18,6 +18,7 @@ Route::get('/zlecenia', 'ZleceniaController@index');
 Route::get('/zlecenia/{id}', 'ZleceniaController@show');
 Route::get('/zlecenie/dodaj', 'ZleceniaController@create');
 Route::post('/zlecenia', 'ZleceniaController@store');
+Route::delete('/zlecenia/{id}', 'ZleceniaController@destroy');
 Route::get('/zlecenia/edytuj/{id}', 'ZleceniaController@edit');
 Route::put('/zlecenia/update/{id}', 'ZleceniaController@update');
 
@@ -31,16 +32,19 @@ Route::get('/zleceniodawcy/edytuj/{id}', 'ZleceniodawcyController@edit');
 Route::put('/zleceniodawcy/update/{id}', 'ZleceniodawcyController@update');
 Route::get('/zleceniodawca/dodaj', 'ZleceniodawcyController@create');
 Route::post('/zleceniodawcy', 'ZleceniodawcyController@store');
-
+Route::delete('/zleceniodawcy/{id}', 'ZleceniodawcyController@destroy');
 //pracownicy
 
 Route::get('/pracownicy/dodajdo/{id}', 'PracownicyController@dodajpracownika');
 Route::get('/pracownicy/dodajdozapisz/{idprac}/{idzlec}', 'PracownicyController@dodajdozapisz');
 Route::get('/pracownicy/odlacz/{idprac}', 'PracownicyController@odlacz');
+Route::post('/pracownicy/zapiszpracownika','PracownicyController@zapiszpracownika');
+// Route::get('/pracownicy/zarejestruj','\App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
+
 //
 
 
-Route::get('/pracownicy/dodaj', '\App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
+Route::get('/pracownicy/dodaj', 'PracownicyController@dodaj');
 
 //materialy
 Route::get('/materialy', 'MaterialyController@index');

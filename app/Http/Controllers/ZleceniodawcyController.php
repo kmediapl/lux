@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Alert;
 
 class ZleceniodawcyController extends Controller
 {
@@ -101,6 +102,9 @@ class ZleceniodawcyController extends Controller
      */
     public function destroy($id)
     {
-       
+        $obiekt = \App\Zleceniodawca::find($id);
+        $obiekt->delete();
+        Alert::add('error', 'Zleceniodawca został usunięty')->flash();
+        return redirect('/zleceniodawcy');
     }
 }

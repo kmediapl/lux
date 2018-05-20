@@ -16,9 +16,9 @@ class ZleceniaTableSeeder extends Seeder
 
 for ($i=0;$i<99;$i++){
     $zlecenia = new Zlecenie();
-      $zlecenia->data_zlecenia = $faker->date;
-      $zlecenia->data_rozpoczecia = $faker->date;
-      $zlecenia->data_zakonczenia = $faker->date;
+      $zlecenia->data_zlecenia = $faker->date();
+      $zlecenia->data_rozpoczecia = $faker->date();
+      $zlecenia->data_zakonczenia = $faker->date();
       $zlecenia->nazwa = $faker->company;
       $zlecenia->rodzaj_uslugi = $faker->randomElement($array = array ('awaria','montaż','przegląd kwartalny','przegląd połroczy',
       'naprawa gwarancyjna','naprawa pogwarancyjna','inne'));

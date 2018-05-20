@@ -15,9 +15,9 @@ class CreateZleceniaTable extends Migration
     {
         Schema::create('zlecenia', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('data_zlecenia')->useCurrent();
-            $table->dateTime('data_rozpoczecia')->useCurrent();
-            $table->dateTime('data_zakonczenia')->useCurrent();
+            $table->date('data_zlecenia');
+            $table->dateTime('data_rozpoczecia');
+            $table->dateTime('data_zakonczenia');
             $table->string('nazwa');
             $table->string('rodzaj_uslugi');
             $table->string('rodzaj_instalacji');
@@ -25,7 +25,7 @@ class CreateZleceniaTable extends Migration
             $table->integer('kilometry')->nullable();
             $table->integer('kilometry_koszt')->nullable();
             $table->boolean('czy_zrealizowane')->default($value = false);
-            $table->integer('kto_zrealizowal')->nullable();;
+            $table->integer('kto_zrealizowal')->nullable();
             $table->string('opis');
             $table->timestamps();
         });

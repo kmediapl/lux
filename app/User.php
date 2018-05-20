@@ -8,10 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use JWTFactory;
 use JWTAuth;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends Authenticatable implements JWTSubject
 {
   use Notifiable;
+  use Messagable;
 
     /**
      * The attributes that are mass assignable.

@@ -29,22 +29,49 @@
       <div class="ui fixed inverted menu">
         <div class="ui container">
           <a href="/" class="header item">
-            LUXWENT 05
+            LUXWENT v0.5
           </a>
          
+       
+
           <div class="ui simple dropdown item">
-            Słowniki<i class="dropdown icon"></i>
-            <div class="menu">
-              <a class="item" href="#">Dodaj pracownika</a>
-              <a class="item" href="/zleceniodawca/dodaj">Dodaj zleceniodawcę</a>
-          
-              
+            <a href="/zleceniodawcy">  Zlecenidawcy<i class="dropdown icon"></i></a>
+              <div class="menu">
+                
+                <a class="item" href="/zleceniodawca/dodaj">Dodaj zleceniodawcę</a>
             
-              <a class="item" href="#">Dodaj pozyycję materiału</a>
+                
+              
+                <a class="item" href="/zleceniodawcy">Wszyscy zleceniodawcy</a>
+                <a class="item" href="/obiekty">Wszystkie obiekty</a>
+              </div>
             </div>
-          </div>
-          <a href="/zleceniodawcy" class="item">Zlecenidawcy</a>
-          <a href="/materialy" class="item">Materiały</a>
+
+            <div class="ui simple dropdown item">
+                Pracownicy<i class="dropdown icon"></i>
+                 <div class="menu">
+                   <a class="item" href="/pracownicy/dodaj ">Dodaj pracownika</a>
+                  
+               
+                   
+                 
+                   <a class="item" href="/users">Wszyscy pracownicy</a>
+                 </div>
+               </div>
+
+
+        
+               <div class="ui simple dropdown item">
+                <a href="/materialy"> Materiały<i class="dropdown icon"></i></a>
+                   <div class="menu">
+                     <a class="item" href="/material/dodaj ">Dodaj materiał</a>
+                    
+                 
+                     
+                   
+                     <a class="item" href="/materialy">Materiały</a>
+                   </div>
+                 </div>
         </div>
       </div>
               <br>
@@ -63,12 +90,59 @@
     <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
 <script>
   $('#example1').calendar( {ampm: false,
-    months: ['Styczeń', 'Luty', 'Marzec', 'April', 'Maj', 'June', 
-    'July', 'August', 'September', 'October', 'November', 'December'],});
-  $('#example2').calendar({ampm: false});
+    text: {
+    months: ['Styczeń', 'Luty', 'Marzec', 'Kwieciń', 'Maj', 'Czerwiec', 
+    'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']},
+    formatter: {
+    date: function (date, settings) {
+      if (!date) return '';
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      return year + '-' + month + '-' + day ;
+    }
+    }
+    });
+  $('#example2').calendar({ampm: false,
+    text: {
+    months: ['Styczeń', 'Luty', 'Marzec', 'Kwieciń', 'Maj', 'Czerwiec', 
+    'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']},
+    formatter: {
+    date: function (date, settings) {
+      if (!date) return '';
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      return year + '-' + month + '-' + day ;
+    }
+    }
+    });
+  $('#example3').calendar({ampm: false,
+    text: {
+    months: ['Styczeń', 'Luty', 'Marzec', 'Kwieciń', 'Maj', 'Czerwiec', 
+    'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']},
+    formatter: {
+    date: function (date, settings) {
+      if (!date) return '';
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      return year + '-' + month + '-' + day ;
+    }
+    }
+    });
   $('.ui.selection.dropdown')
   .dropdown()
 ;
+$('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+;
+
 </script>
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 </body>

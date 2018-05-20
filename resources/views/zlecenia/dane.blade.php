@@ -36,7 +36,7 @@
 <form action="{{ url('/zlecenia', ['id' => $zlecenie->id]) }}" method="post">
     <input type="hidden" name="_method" value="delete" />
     {!! csrf_field() !!}
-    <button class="btn btn-default" type="submit">Usuń</button>
+    <button class="btn ui orange" type="submit">Usuń</button>
 </form>
         </div>
 

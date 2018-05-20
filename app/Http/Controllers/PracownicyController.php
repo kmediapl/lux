@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\DB;
+use \App\Http\Controllers\DB;
+use App\User;
 
 class PracownicyController extends Controller
 {
@@ -36,5 +37,38 @@ class PracownicyController extends Controller
     public function odlacz($id) {
         return 'Zrobić odłączenieMetoda delete';
     }
+
+    public function dodaj() {
+            return view('pracownicy.dodaj');
+    }
+    public function zapiszpracownika(Request $request) {
+
+        $walidavja = $request->validate([
+            'imie' => 'required',
+            'nazwisko' =>'required',
+            'email' => 'required|unique:users',
+            // 'nazwa' => 'required',
+            'haslo' => 'required',
+            'haslo2' => 'required',
+        ]);
+        $haslo = $request->haslo;
+        $haslo2 = $request->haslo2;
+        $nazwa = $request->imie.' '.$request->nazwisko;
+
+        if ($haslo != $haslo2) {
+            return 'Hasła są nieprawidłowe'.$haslo.'::'.$haslo2;
+        }
+        else {
+            \DB::table('users')->insert([
+                ['name' => $nazwa  ,'imie' => $request->imie , 'nazwisko' => $request->nazwisko ,'password' => bcrypt($request->haslo), 'email'=> $request->email]
+            ]);
+            return redirect('/pracownicy');
+        }
+
+    //    $user->nazwa = $request('nazwa');
+    //    $user->nazwa = $request('nazwa');
+    //    $user->nazwa = $request('nazwa');
+
+}
 
 }
