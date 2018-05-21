@@ -24,6 +24,15 @@ class MaterialyController extends Controller
         // $materialy = \App\Material::all();
         // return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id]);
     }
+    public function odlacz($idmat,$idzlec) {
+
+
+        $material = \App\Zlecenie::find($idzlec)->materialy()->detach($idmat);
+        return redirect()->back();
+
+        // $materialy = \App\Material::all();
+        // return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id]);
+    }
     public function dodajdozapiszapi(Request $request) {
 
         $idmat=$request->idmat;
@@ -38,6 +47,14 @@ class MaterialyController extends Controller
         // $id=$request->idzlec;
         $materiaywzleceniu = \App\Zlecenie::find($id)->materialy()->get();
         return  response()->json($materiaywzleceniu);
+    }
+
+    public function zmien(Request $request){
+        $idzlec=$request->idzlec;
+        $idmat=$request->idmat;
+        $material = \App\Zlecenie::find($idzlec)->materialy()->updateExistingPivot(\App\Material::find($request->idmat),
+        ['cena_materialu'=>$request->cenamaterialu,'cena_dla_klienta'=>$request->cenadlaklienta,'ilosc'=>$request->ilosc]);
+        return redirect('/materialy/dodajdo/'.$idzlec);
     }
     /**
      * Display a listing of the resource.

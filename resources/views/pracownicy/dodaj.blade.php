@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
         <div class="karta">
-<h1>Dodaj zlecenie</h1>
+<h1>Dodaj pracownika</h1>
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -25,7 +25,7 @@
         </div>
     </div>
 <div class="field">
-        {{Form::label('Adres email', 'Adress email')}}
+        {{Form::label('Adres email', 'Adres email')}}
         {{Form::text('email',null,['class' => 'form-control', 'placeholder' => 'Podaj email'])}}
         </div>
         <div class="two fields">

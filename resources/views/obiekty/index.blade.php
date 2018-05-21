@@ -2,22 +2,23 @@
 @extends('layouts.aplikacja1')
 @section('content')
 <div class="container">
-        <div class="karta">
+        <div class="ui segment">
 <h1>Lista obiektów</h1>
 <a href="/obiekt/dodaj">   <button class="ui orange animated button   " tabindex="0">
-                <div class="visible content">Dodaj zlecenie</div>
+                <div class="visible content">Dodaj obiekt</div>
                 <div class="hidden content">
                   <i class="add icon"></i>
                 </div>        </button></a>
 
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">add</i>
-          </button>
+   
 </a>
-<table class="table">
+<table class="ui celled table">
+        <th>Nazwa obiektu</th><th>Miejscowość</th><th>Ulica</th><th>Numer domu/lokalu</th><th>Nazwa zleceniodawcy</th>
 @foreach ($obiekty as $obiekt)
     <tr><td><a href="/obiekty/{{ $obiekt->id }}">{{ $obiekt->nazwa }}</a></td><td>{{ $obiekt->miejscowosc }}</td>
-        <td>{{ $obiekt->ulica }}</td><td>{{ $obiekt->nrdomulokalu }}</td></tr>
+        <td>{{ $obiekt->ulica }}</td><td>{{ $obiekt->nrdomulokalu }}</td>
+    <th>{{\App\Zleceniodawca::find($obiekt->zleceniodawca_id)['nazwa']}}</th>
+</tr>
 @endforeach
 </table>
 {{ $obiekty->links() }}

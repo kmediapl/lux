@@ -4,24 +4,25 @@
 <div class="container">
         <div class="karta">
 <h1>Lista materialów</h1>
-<a href="/material/dodaj">
-    <button class="ui  violet button">
-            <i class="material-icons">add</i>
-        </button>
-</a><br>
+<a href="/material/dodaj">    <button class="ui orange animated button   " tabindex="0">
+        <div class="visible content">Dodaj material</div>
+        <div class="hidden content">
+          <i class="add icon"></i>
+        </div>        </button></a>
+
 <table class="ui celled table">
-    <th>Nazwa</th><th>Akcja</th>
+  <th>Lp.</th>  <th>Nazwa</th><th>Akcja</th>
 @foreach ($materialy as $material)
-    <tr><td><a href="/materialy/{{ $material->id }}">{{ $material->nazwa }}</a></td>
+    <tr><td>{{ $material->id }}</td><td><a href="/materialy/{{ $material->id }}">{{ $material->nazwa }}</a></td>
     
     <td>
 
                             <form action="{{ url('/materialy', ['id' => $material->id]) }}" method="post">
                                 <input type="hidden" name="_method" value="delete" />
                                 {!! csrf_field() !!}
-                                <button type="submit" class="mini compact  icon ui  violet button">
-                                        <i class="material-icons">remove</i>
-                    
+                                <button type="submit" class=" icon mini ui  red button">
+                                        <i class="icon remove"></i>
+                                    
                                     </button>
                             </form>
 

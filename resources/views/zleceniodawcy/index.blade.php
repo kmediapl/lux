@@ -4,6 +4,14 @@
 <div class="container">
         <div class="karta">
 <h1>Zleceniodawcy</h1>
+<a href="/zleceniodawca/dodaj">   <button class="ui orange animated button   " tabindex="0">
+                <div class="visible content">Dodaj obiekt</div>
+                <div class="hidden content">
+                  <i class="add icon"></i>
+                </div>        </button></a>
+
+   
+</a>
 @foreach (Alert::all() as $alert)
 <div class="ui negative message">
                 <i class="close icon"></i>

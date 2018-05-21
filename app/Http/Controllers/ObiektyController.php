@@ -103,6 +103,6 @@ class ObiektyController extends Controller
     {
         $obiekt = Obiekt::find($id);
         $obiekt->delete();
-        return 'skasowane';
+        return redirect('/obiekty');
     }
 }

@@ -39,6 +39,8 @@ Route::get('/pracownicy/dodajdo/{id}', 'PracownicyController@dodajpracownika');
 Route::get('/pracownicy/dodajdozapisz/{idprac}/{idzlec}', 'PracownicyController@dodajdozapisz');
 Route::get('/pracownicy/odlacz/{idprac}', 'PracownicyController@odlacz');
 Route::post('/pracownicy/zapiszpracownika','PracownicyController@zapiszpracownika');
+Route::get('/pracownicy', 'PracownicyController@index');
+Route::delete('/pracownicy/{id}', 'PracownicyController@destroy');
 // Route::get('/pracownicy/zarejestruj','\App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
 
 //
@@ -47,13 +49,14 @@ Route::post('/pracownicy/zapiszpracownika','PracownicyController@zapiszpracownik
 Route::get('/pracownicy/dodaj', 'PracownicyController@dodaj');
 
 //materialy
+Route::get('/materialyzmien', 'MaterialyController@zmien');
 Route::get('/materialy', 'MaterialyController@index');
 Route::get('/material/dodaj', 'MaterialyController@create');
 Route::post('/materialy', 'MaterialyController@store');
 Route::delete('/materialy/{id}', 'MaterialyController@destroy');
 Route::get('/materialy/dodajdo/{id}', 'MaterialyController@dodajmaterial');
 Route::get('/materialy/dodajdozapisz/{idmat}/{idzlec}', 'MaterialyController@dodajdozapisz');
-
+Route::get('/materialy/odlacz/{idmat}/{idzlec}', 'MaterialyController@odlacz');
 //
 Route::post('/dologin', 'ZleceniaController@dologin');
 //Route::get('/zlecenia', 'ZleceniaController@index');
@@ -87,3 +90,7 @@ Route::post('/appmobile/pliki','PlikiController@store');
 // Route::get('/materialy', function () {
 //     return view('mobilne.mat');
 // });
+
+//raporty
+
+Route::get('/raporty/zrealizowanezlecenia', 'RaportyController@zrealizowanezlecenia');

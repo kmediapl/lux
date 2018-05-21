@@ -32,10 +32,21 @@
             LUXWENT v0.5
           </a>
          
-       
+          <div class="ui simple dropdown item">
+              <a href="/">  Zlecenia<i class="dropdown icon"></i></a>
+                <div class="menu">
+                  
+                  <a class="item" href="/zlecenie/dodaj">Dodaj zlecenie</a>
+              
+                  
+                
+                  <a class="item" href="/">Wszystkie zlecenia</a>
+                 
+                </div>
+              </div>
 
           <div class="ui simple dropdown item">
-            <a href="/zleceniodawcy">  Zlecenidawcy<i class="dropdown icon"></i></a>
+            <a href="/zleceniodawcy">  Zleceniodawcy<i class="dropdown icon"></i></a>
               <div class="menu">
                 
                 <a class="item" href="/zleceniodawca/dodaj">Dodaj zleceniodawcę</a>
@@ -55,7 +66,7 @@
                
                    
                  
-                   <a class="item" href="/users">Wszyscy pracownicy</a>
+                   <a class="item" href="/pracownicy">Wszyscy pracownicy</a>
                  </div>
                </div>
 
@@ -72,6 +83,18 @@
                      <a class="item" href="/materialy">Materiały</a>
                    </div>
                  </div>
+                 <div class="ui simple dropdown item">
+                    <a href="/raporty">  Raporty<i class="dropdown icon"></i></a>
+                      <div class="menu">
+                        
+                        <a class="item" href="/raporty/zrealizowanezlecenia">Zrealizowane zlecenia</a>
+                    
+                        
+                      
+                        <a class="item" href="/raporty/wgusera">Zlecenia wg pracownika</a>
+                        <a class="item" href="/raporty/oddo">Zlecenia od do</a>
+                      </div>
+                    </div>
         </div>
       </div>
               <br>

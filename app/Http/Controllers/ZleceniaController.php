@@ -42,6 +42,7 @@ class ZleceniaController extends Controller
     public function plik() {
         return view('zlecenia.plik');
     }
+
     public function uploads (Request $request) {
         $katalog = date("m_y"); 
         $request->file('plik')->store($katalog);
@@ -52,6 +53,7 @@ class ZleceniaController extends Controller
 
     public function index()
     {   
+      
         $niezrealizowane = Zlecenie::where('czy_zrealizowane','=',true)->orderBy('created_at', 'asc')->paginate(10);
         $nadchodzacezlecenia =  Zlecenie::where('czy_zrealizowane','=',false)->orderBy('data_zlecenia', 'asc')->paginate(10); 
         return view('zlecenia.index',['niezrealizowane'=>$niezrealizowane,'nadchodzacezlecenia'=>$nadchodzacezlecenia]);

@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Http\Controllers\DB;
 use App\User;
+use Alert;
 
 class PracownicyController extends Controller
 {
+    public function index(){
+        $pracownicy= \DB::table('users')->get();
+        return view('pracownicy.index',['pracownicy'=>$pracownicy]);
+    }
+    
+    
     public function dodajpracownika($idzlec) {
         //$zlecenie = \App\Zlecenie::find($idzlec);
         //$roles = App\User::find(1)->roles()->orderBy('name')->get();
@@ -69,6 +76,12 @@ class PracownicyController extends Controller
     //    $user->nazwa = $request('nazwa');
     //    $user->nazwa = $request('nazwa');
 
-}
-
+        }
+        public function destroy($id)
+        {
+            $obiekt = \App\User::find($id);
+            $obiekt->delete();
+            Alert::add('error', 'Pracownik został usunięty')->flash();
+            return redirect('/pracownicy');
+        }
 }

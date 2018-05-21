@@ -2,7 +2,7 @@
 @extends('layouts.aplikacja1')
 @section('content')
 <div class="container">
-    <div class="karta">
+    <div class="ui segment">
 <h1>Edytuj obiekt</h1>
 
 {{Form::open(['url' => ['obiekty/update',$obiekt->id], 'method' => 'put'])}}
@@ -27,7 +27,7 @@
 <option value="{{$zlecenodawca->id}}">{{$zlecenodawca->nazwa}}</option>
     @endforeach
 </select><br>  --}}
-<button>Zapisz</button>
+<button class="ui button violet icon"><i class="ui icon save"></i> Zapisz</button>
 {!! Form::close() !!}
 </div>
 </div>

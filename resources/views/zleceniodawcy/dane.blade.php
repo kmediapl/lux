@@ -34,6 +34,7 @@ Telefon: {{$zleceniodawca->telefon}}, Email: {{$zleceniodawca->email}}
 <hr>
 <div class="ui center aligned segment">
 <h1 class="ui center ">Obiekty zleceniodawcy</h1>
+<a href="/obiekt/dodaj  "><button class="ui button icon red"><i class="icon add "></i></button></a>
 <ul>
 @foreach ($obiekty as $obiekt)
 <li>
@@ -43,9 +44,9 @@ Telefon: {{$zleceniodawca->telefon}}, Email: {{$zleceniodawca->email}}
  </div>
  <div class="ui center aligned ">
 <a href="/zleceniodawcy/">
-        <div class="ui button" >  <i class="icon user"></i>Wszyscy zleceniodawcy</div> 
+        <div class="ui button green" >  <i class="icon th"></i>Wszyscy zleceniodawcy</div> 
         </a>
-        <a href="/zleceniodawcy/edytuj/{{$zleceniodawca->id}}"><div class="ui button" >
+        <a href="/zleceniodawcy/edytuj/{{$zleceniodawca->id}}"><div class="ui button green" >
                         <i class="edit icon"></i>Edycja</div></a>
                
                        

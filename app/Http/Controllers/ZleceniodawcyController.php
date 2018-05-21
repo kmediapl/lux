@@ -14,7 +14,7 @@ class ZleceniodawcyController extends Controller
      */
     public function index()
     {
-        $zleceniodawcy = \App\Zleceniodawca::all();
+        $zleceniodawcy = \App\Zleceniodawca::all()->sortByDesc('created_at');
         //return $zleceniodawcy ;
         return view('zleceniodawcy.index',['zleceniodawcy'=> $zleceniodawcy]);
     }
@@ -55,7 +55,7 @@ class ZleceniodawcyController extends Controller
         $zleceniodawca= new \App\Zleceniodawca;
       
         $zleceniodawca->create($validatedData);
-        return redirect()->back();
+        return redirect('/zleceniodawcy');
     }
 
     /**
@@ -79,7 +79,8 @@ class ZleceniodawcyController extends Controller
      */
     public function edit($id)
     {
-        return view('zleceniodawcy.edytuj', ['id'=>$id]);
+        $zleceniodawca = \App\Zleceniodawca::find($id);
+        return view('zleceniodawcy.edytuj', ['zleceniodawca'=> $zleceniodawca]);
     }
 
     /**
@@ -91,7 +92,16 @@ class ZleceniodawcyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obiekt = Zleceniodawca::find($id);
+        // print_r($id);
+       // $input= $request->all();
+        //  $data = $request->all();
+          //print_r($data);
+         //$obiekt->fill($input)->save();
+         $obiekt->update($request->all());
+         //Session::flash('flash_message', 'Task successfully added!');
+      
+         return redirect('/zleceniodawcy');
     }
 
     /**

@@ -80,7 +80,7 @@
 <div class="ui selection dropdown">
         <input type="hidden" name="zleceniodawca_id">
         <i class="dropdown icon"></i>
-        <div class="default text">Gender</div>
+        <div class="default text">Wybierz zleceniodawce</div>
         <div class="menu">
                 @foreach ($zleceniodawcy as $zlecenodawca)
                 <div class="item" data-value="{{$zlecenodawca->id}}">{{$zlecenodawca->nazwa}}</div>
