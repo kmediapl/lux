@@ -60,6 +60,11 @@
 <hr>
 
 <a href="/zlecenia/"><button class="ui button green">Wszystkie zlecenia</button></a>
+@if($zlecenie->czy_zrealizowane==0)
+        <a href="/zrealizujzlecenie/{{$zlecenie->id}}"><button class="ui button red">Zrealizuj zlecenie</button></a>
+
+@else
+@endif
 {{-- <a href="/zlecenia/edytuj/{{$zlecenie->id}}">Edycja</a>
 <form action="{{ url('/zlecenia', ['id' => $zlecenie->id]) }}" method="post">
     <input type="hidden" name="_method" value="delete" />

@@ -39,19 +39,24 @@ class ZleceniaApiController extends Controller
     }
     public function pokazzlecenie($id) {
         $zlecenie = Zlecenie::find($id);
-      
-
-        return  response()->json($zlecenie);
+      return  response()->json($zlecenie);
     }
-    public function zrealizujzlecenie($id,$user) {
+    // public function zrealizujzlecenie($id,$user) {
+    //     $zlecenie = Zlecenie::find($id);
+    //     $zlecenie->czy_zrealizowane = true;
+    //     $zlecenie->kto_zrealizowal =$user;
+    //     $zlecenie->save();
+
+    //     return  response()->json($zlecenie);
+    // }
+    public function zrealizujzlecenie($id) {
         $zlecenie = Zlecenie::find($id);
-        $zlecenie->czy_zrealizowane = true;
-        $zlecenie->kto_zrealizowal =$user;
+        $zlecenie->czy_zrealizowane = 1;
+       
         $zlecenie->save();
 
         return  response()->json($zlecenie);
     }
-    
     /**
      * Show the form for creating a new resource.
      *

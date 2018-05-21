@@ -42,9 +42,12 @@ Route::group(['middleware' => 'jwt.refresh'], function(){
 // Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
 Route::group(['middleware' => 'jwt.auth'], function(){
     // Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
-    Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
+    // Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
     Route::get('/materialy', 'MaterialyController@indexapi');
 });
 Route::get('/mojezlecenia/{id}', 'ZleceniaApiController@zleceniausera');
 Route::post('/materialy', 'MaterialyController@dodajdozapiszapi');
 Route::get('/materialywzleceniu/{id}', 'MaterialyController@materialywzleceniu');
+Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
+Route::get('/zleceniodawcy/{id}', 'ZleceniodawcyController@showapi');
+Route::post('/zrealizujzlecenie/{id}', 'ZleceniaApiController@zrealizujzlecenie');
