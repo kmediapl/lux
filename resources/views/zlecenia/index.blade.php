@@ -8,6 +8,14 @@
                                   <i class="add icon"></i>
                                 </div>        </button></a>
                
+
+<div class="segment">
+                <div class="ui search">
+                                <input class="prompt" type="text" placeholder="Common passwords...">
+                                <div class="results"></div>
+                              </div>
+</div>
+
                 <div class="ui divider"></div>
                 <div class="ui grid">
                                 <div class="eight wide column">

@@ -142,6 +142,18 @@ $('.message .close')
     ;
   })
 ;
+$('.ui.search')
+  .search({
+    apiSettings: {
+      url: 'http://127.0.0.1:8000/api/mojezlecenia/{query}'
+    },
+    fields: {
+      results : 'items',
+      title   : 'nazwa'
+    },
+    minCharacters : 1
+  })
+;
 
 </script>
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
