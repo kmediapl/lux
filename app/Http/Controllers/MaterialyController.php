@@ -33,11 +33,27 @@ class MaterialyController extends Controller
         // $materialy = \App\Material::all();
         // return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id]);
     }
+
+public function testpivot () {
+    $idrec = \DB::table('zlecenia_materialy')->select('*')->get();
+    return  response()->json($idrec);
+}
+public function testpivot2 () {
+    $material = \App\Zlecenie::find(4)->materialy()->attach([4 =>['cena_dla_klienta' => 23]]);
+    // \DB::table('zlecenia_materialy')->where('id', 3)->update(
+    //     ['cena_dla_klienta' => 23, 'ilosc' => 123]
+    // );
+    // return  response()->json($idrec);
+
+}
     public function dodajdozapiszapi(Request $request) {
 
         $idmat=$request->idmat;
         $idzlec=$request->idzlec;
         $material = \App\Zlecenie::find($idzlec)->materialy()->attach($idmat);
+
+        
+
         return  response()->json($material);
 
         // $materialy = \App\Material::all();

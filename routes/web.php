@@ -95,3 +95,11 @@ Route::post('/appmobile/pliki','PlikiController@store');
 //raporty
 
 Route::get('/raporty/zrealizowanezlecenia', 'RaportyController@zrealizowanezlecenia');
+
+
+
+
+//testy
+
+Route::get('/testpivot', 'MaterialyController@testpivot');
+Route::post('/testpivot2', 'MaterialyController@testpivot2');

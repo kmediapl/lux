@@ -16,6 +16,8 @@ class CreateZleceniaTable extends Migration
         Schema::create('zlecenia', function (Blueprint $table) {
             $table->increments('id');
             $table->date('data_zlecenia');
+            $table->date('planowana_data_rozpoczecia')->nullable();
+            $table->date('planowana_data_zkonczenia')->nullable();
             $table->dateTime('data_rozpoczecia');
             $table->dateTime('data_zakonczenia');
             $table->string('nazwa');

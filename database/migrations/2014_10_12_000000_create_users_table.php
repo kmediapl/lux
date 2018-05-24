@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
           $table->string('imie')->nullable();
           $table->string('nazwisko')->nullable();
           $table->string('stanowisko')->nullable();
+          $table->integer('stawka_za_godzine')->nullable();
           $table->string('uwagi')->nullable();
           $table->rememberToken();
             $table->timestamps();

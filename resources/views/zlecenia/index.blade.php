@@ -61,7 +61,7 @@
                 <a href="/pracownicy/dodajdo/{{ $obiekt->id }}"><button class="ui icon button orange"><i class="icon user"></i>Przydziel pracowników</button></a></td></tr>
 @endforeach
 </table>
-{{ $niezrealizowane->links() }}
+
 </div>
 </div>
 
