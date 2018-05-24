@@ -70,7 +70,13 @@ class ZleceniodawcyController extends Controller
         $obiekty = $zleceniodawca->obiekty;
         return view ('zleceniodawcy.dane',['zleceniodawca'=>$zleceniodawca, 'obiekty'=>$obiekty]);
     }
-
+    public function showapi($id)
+    {
+        $zleceniodawca = \App\Zleceniodawca::find($id);
+        $obiekty = $zleceniodawca->obiekty;
+        return  response()->json($zleceniodawca);
+       
+    }
     /**
      * Show the form for editing the specified resource.
      *

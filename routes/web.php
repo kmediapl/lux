@@ -21,6 +21,7 @@ Route::post('/zlecenia', 'ZleceniaController@store');
 Route::delete('/zlecenia/{id}', 'ZleceniaController@destroy');
 Route::get('/zlecenia/edytuj/{id}', 'ZleceniaController@edit');
 Route::put('/zlecenia/update/{id}', 'ZleceniaController@update');
+Route::get('/zrealizujzlecenie/{id}', 'ZleceniaController@zrealizujzlecenie');
 
 Route::get('/plik','ZleceniaController@plik');
 Route::post('/uploads','ZleceniaController@uploads');

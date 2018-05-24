@@ -7,6 +7,7 @@ use App\Zlecenie;
 use App\Zleceniodawca;
 use App\Rodzajinstalacji;
 
+
 class ZleceniaController extends Controller
 {
     /**
@@ -80,6 +81,7 @@ class ZleceniaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -154,5 +156,12 @@ class ZleceniaController extends Controller
         $zlecenia->delete();
         
         return redirect('/zlecenia');
+    }
+    public function zrealizujzlecenie($id) {
+        \DB::table('zlecenia')
+            ->where('id', $id)
+            ->update(['czy_zrealizowane' => 1]);
+            // $request->session()->flash('status', 'Task was successful!');
+       return redirect('/zlecenia/'.$id); 
     }
 }

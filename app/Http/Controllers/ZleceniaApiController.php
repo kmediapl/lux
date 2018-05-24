@@ -39,9 +39,7 @@ class ZleceniaApiController extends Controller
     }
     public function pokazzlecenie($id) {
         $zlecenie = Zlecenie::find($id);
-      
-
-        return  response()->json($zlecenie);
+      return  response()->json($zlecenie);
     }
     // public function zrealizujzlecenie($id,$user) {
     //     $zlecenie = Zlecenie::find($id);
