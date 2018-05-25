@@ -51,3 +51,9 @@ Route::get('/materialywzleceniu/{id}', 'MaterialyController@materialywzleceniu')
 Route::get('/mojezlecenia/dane/{id}', 'ZleceniaApiController@pokazzlecenie');
 Route::get('/zleceniodawcy/{id}', 'ZleceniodawcyController@showapi');
 Route::post('/zrealizujzlecenie/{id}', 'ZleceniaApiController@zrealizujzlecenie');
+
+
+
+
+Route::get('/testpivot', 'MaterialyController@testpivot');
+Route::post('/testpivot2', 'MaterialyController@testpivot2');

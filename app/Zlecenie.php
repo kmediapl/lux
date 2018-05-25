@@ -19,6 +19,6 @@ class Zlecenie extends Model
  }
  public function materialy()
  {
-     return $this->belongsToMany('App\Material', 'zlecenia_materialy', 'zlecenia_id', 'material_id')->withTimestamps();
+     return $this->belongsToMany('App\Material', 'zlecenia_materialy', 'zlecenia_id', 'material_id')->withPivot('cena_dla_klienta', 'id','cena_materialu', 'ilosc','czy_zablokowane','jednostka')->withTimestamps();
  }
 }

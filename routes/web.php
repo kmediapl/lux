@@ -57,7 +57,7 @@ Route::post('/materialy', 'MaterialyController@store');
 Route::delete('/materialy/{id}', 'MaterialyController@destroy');
 Route::get('/materialy/dodajdo/{id}', 'MaterialyController@dodajmaterial');
 Route::get('/materialy/dodajdozapisz/{idmat}/{idzlec}', 'MaterialyController@dodajdozapisz');
-Route::get('/materialy/odlacz/{idmat}/{idzlec}', 'MaterialyController@odlacz');
+Route::get('/materialy/odlacz/{idmat}/{idzlec}/{idrec}', 'MaterialyController@odlacz');
 //
 Route::post('/dologin', 'ZleceniaController@dologin');
 //Route::get('/zlecenia', 'ZleceniaController@index');
