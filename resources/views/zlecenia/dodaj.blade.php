@@ -14,35 +14,58 @@
     </div>
 @endif
 {{Form::open(['url' => 'zlecenia', 'method' => 'post','class'=>"ui form"])}}
-<div class="form-group">
+<div class="two fields">
+        <div class="field">
 {{Form::label('nazwa', 'Nazwa zlecenia')}}
-{{Form::text('nazwa',null,['class' => 'form-control', 'placeholder' => 'Podaj nazwę zlecenia'])}}<br>
-</div>
-<div class="three fields">
-    <div class="field">
-{{Form::label('data_zlecenia', 'Data zlecenia')}}
-<div class="ui calendar" id="example1">
-        <div class="ui input left icon">
-          <i class="calendar icon"></i>
-          <input type="text" placeholder="Data zlecenia" name="data_zlecenia">
-        </div>
-      </div>
-
+{{Form::text('nazwa',null,['class' => 'form-control', 'placeholder' => 'Podaj nazwę zlecenia'])}}
 </div>
 <div class="field">
-{{Form::label('data_rozpoczecia', 'Data rozpoczęcia')}}
+        {{Form::label('data_zlecenia', 'Data zlecenia')}}
+        <div class="ui calendar" id="example1">
+                <div class="ui input left icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" placeholder="Data zlecenia" name="data_zlecenia">
+                </div>
+              </div>
+        
+        </div>
+</div>
+<div class="four fields">
+
+<div class="field">
+{{Form::label('planowana_data_rozpoczecia', 'Planowana data rozpoczęcia')}}
 <div class="ui calendar" id="example2">
         <div class="ui input left icon">
           <i class="calendar icon"></i>
-          <input type="text" placeholder="Data rozpoczęcia" name="data_rozpoczecia">
+          <input type="text" placeholder="Planowana data rozpoczęcia" name="planowana_data_rozpoczecia">
         </div>
       </div>
 
 
 </div>
 <div class="field">
-{{Form::label('data_zakonczenia', 'Data ')}}
-<div class="ui calendar" id="example3">
+        {{Form::label('planowana_data_zakonczenia', 'Planowana data zakończenia')}}
+        <div class="ui calendar" id="example3">
+            <div class="ui input left icon">
+              <i class="calendar icon"></i>
+              <input type="text" placeholder="Planowana data zakończenia" name="planowana_data_zakonczenia">
+            </div>
+          </div>
+        </div>
+<div class="field">
+        {{Form::label('data_rozpoczecia', 'Data rozpoczęcia')}}
+        <div class="ui calendar" id="example4">
+                <div class="ui input left icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" placeholder="Data rozpoczęcia" name="data_rozpoczecia">
+                </div>
+              </div>
+        
+        
+        </div>
+<div class="field">
+{{Form::label('data_zakonczenia', 'Data zakończenie')}}
+<div class="ui calendar" id="example5">
     <div class="ui input left icon">
       <i class="calendar icon"></i>
       <input type="text" placeholder="Data zakończenia" name="data_zakonczenia">

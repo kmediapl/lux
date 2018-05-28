@@ -165,4 +165,26 @@ class ZleceniaController extends Controller
             // $request->session()->flash('status', 'Task was successful!');
        return redirect('/zlecenia/'.$id); 
     }
+    public function dodajobiekt(Request $request) {
+        $idzlec = $request->idzlec;
+        $idobiektu = $request->idobiektu;
+        \DB::table('zlecenia')
+            ->where('id', $idzlec)
+            ->update(['obiekt_id' => $idobiektu]);
+      
+            // \DB::table('zlecenia')
+            //     ->where('id', 5)
+            //     ->update(['obiekt_id' => 4]);
+            //     return ('fsdfsfsdfds'); 
+       return redirect('/zlecenia/'. $idzlec); 
+    }
+    public function szukaj(Request $request) {
+        $nazwazlecenia = $request->nazwa;
+        // $miejscowosc=$request->miejscowosc;
+        $zlecenia=\DB::table('zlecenia')
+            ->where('nazwa','like' ,'%'.$nazwazlecenia.'%')
+            // ->orWhere('miejscowosc','like' ,'%'.$miejscowosc.'%')
+            ->get();
+            return view('zlecenia.szukaj',['zlecenia'=>$zlecenia]);
+    }
 }

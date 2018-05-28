@@ -12,22 +12,26 @@
                                   <i class="add icon"></i>
                                 </div>        </button></a>
 <div class="ui segment">
-                <form action="/szukajzlecenia" class="ui form">
-                        <div class="two fields"> 
-                                  
-                                <div class="ten wide  field">
+        
+                                <form action="/szukajzlecenia" class="ui form">
+                                     <div class="four fields"> 
+                                                <div class="field">
+                                                </div>
+                                                <div class="field">
+                                                </div>  
+                                             <div class="field">
+                                                      
+                                                <input  name="nazwa"  type="text" placeholder="Nazwa zlecenia..">
+                                             </div> 
                                          
-                                   <input  name="nazwa"  type="text" placeholder="Nazwa zlecenia..">
-                                </div> 
-                            
-                                   {{-- <div class="field">
-                                              
-                                   <input type="text" placeholder="Miejscowość...">
-                           </div>  --}}
-                           <div class="field">
-                        <button class="ui button green fluid">Szukaj</button>
-                        </div></div>
-                   </form>
+                                                {{-- <div class="field">
+                                                           
+                                                <input type="text" placeholder="Miejscowość...">
+                                        </div>  --}}
+                                        <div class="field">
+                                     <button class="ui button green fluid">Szukaj</button>
+                                     </div></div>
+                                </form>
                         </div>
 </div>
 
@@ -35,11 +39,11 @@
                 <div class="ui grid">
                                 <div class=" wide column">
                                                 <div class="ui segment">
-                                                      <h1>Nadchodzące zlecenia</h1>
+                                                      <h1>Szukane zlecenia</h1>
                                                         <table class="ui celled striped table">
                                                                         <th>Data zlecenia</th><th>Nazwa zlecenia</th><th>Miejscowość</th>
                                                                         <th>Przydzieleni pracownicy</th><th>---</th>
-                                                        @foreach ($nadchodzacezlecenia as $obiekt1)
+                                                        @foreach ($zlecenia as $obiekt1)
     <tr><td>{{ $obiekt1->data_zlecenia }}</td>
 
         <td><a href="/zlecenia/{{ $obiekt1->id }}">{{ $obiekt1->nazwa }}</a></td>
@@ -64,20 +68,7 @@
                               </div>
 
 
-        <div class="ui segment">
-<h1>Lista zleceń</h1>
 
-<table class="ui celled striped table">
-        <th>Data zlecenia</th><th>Nazwa zlecenia</th><th>Nazwa zleceniodawcy</th><th>Miejscowość</th><th>Pracownicy</th>
-@foreach ($niezrealizowane as $obiekt)
-    <tr><td>{{ $obiekt->data_zlecenia }}</td><td><a href="/zlecenia/{{ $obiekt->id }}">{{ $obiekt->nazwa }}</a></td>
-    <td><a href="/zleceniodawcy/{{$obiekt->zleceniodawca_id}}">{{\App\Zleceniodawca::find($obiekt->zleceniodawca_id)['nazwa']}}</a></td>
-    <td>{{\App\Zleceniodawca::find($obiekt->zleceniodawca_id)['miejscowosc']}}</td><td>
-                <a href="/pracownicy/dodajdo/{{ $obiekt->id }}"><button class="ui icon button orange"><i class="icon user"></i>Przydziel pracowników</button></a></td></tr>
-@endforeach
-</table>
-
-</div>
 </div>
 
 

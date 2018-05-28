@@ -69,19 +69,35 @@ public function testpivot2 () {
     return  response()->json($idrec);
 
 }
+//werska 1
+    // public function dodajdozapiszapi(Request $request) {
+
+    //     $idmat=$request->idmat;
+    //     $idzlec=$request->idzlec;
+    //     $material = \App\Zlecenie::find($idzlec)->materialy()->attach($idmat);
+    //     return  response()->json($material);
+
+    // }
+    //wersja 2
     public function dodajdozapiszapi(Request $request) {
 
-        $idmat=$request->idmat;
-        $idzlec=$request->idzlec;
-        $material = \App\Zlecenie::find($idzlec)->materialy()->attach($idmat);
-      
-
-        
-
+        // $idmat=$request->idmat;
+        // $idzlec=$request->idzlec;
+        $cena_materialu=$request->cena_materialu;
+        $ilosc = $request->ilosc;
+        $jednostka = $request->jednostka;
+        // $material = \DB::table('zlecenia_materialy')->insert(['zlecenia_id'=>$idzlec,'material_id'=>$idmat, 
+        // 'cena_materialu'=>$cena_materialu,
+        // 'ilosc'=>$ilosc,
+        // 'jednostka'=>$jednostka
+        // ]);
+        $material = \DB::table('zlecenia_materialy')->insert(['zlecenia_id'=>$request->idzlec,
+        'material_id'=>$request->idmat, 
+        'cena_materialu'=>$request->ilosc
+        ]);
+        // $material = \App\Zlecenie::find($idzlec)->materialy()->attach($idmat);
         return  response()->json($material);
 
-        // $materialy = \App\Material::all();
-        // return view ('materialy.dodajdo',['materialy'=>$materialy,'idzlec'=>$id]);
     }
     public function materialywzleceniu($id) {
         // $id=$request->idzlec;
@@ -94,7 +110,11 @@ public function testpivot2 () {
         $idmat=$request->idmat;
         // $material = \App\Zlecenie::find($idzlec)->materialy()->updateExistingPivot(\App\Material::find($request->idmat),
         // ['cena_materialu'=>$request->cenamaterialu,'cena_dla_klienta'=>$request->cenadlaklienta,'ilosc'=>$request->ilosc]);
-        
+        $request->validate([
+            'cenamaterialu' => 'numeric',
+            'ilosc' => 'numeric',
+            'cenadlaklienta' => 'numeric',
+        ]);
          $idrec2= \DB::table('zlecenia_materialy')->where('id', $request->idrecordu)->update(
            ['cena_materialu'=>$request->cenamaterialu, 'ilosc'=>$request->ilosc,'jednostka'=>$request->jednostka,'cena_dla_klienta'=>$request->cenadlaklienta,'czy_zablokowane'=>1 ]);
         

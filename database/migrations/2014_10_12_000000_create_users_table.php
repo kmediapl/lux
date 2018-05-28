@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
           $table->string('stanowisko')->nullable();
           $table->integer('stawka_za_godzine')->nullable();
           $table->string('uwagi')->nullable();
+          $table->boolean('isadmin')->nullable();
           $table->rememberToken();
             $table->timestamps();
         });

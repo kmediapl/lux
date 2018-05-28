@@ -18,11 +18,44 @@
       
     @endif
 <hr>
+        <h3>Zleceniodawca: {{\App\Zleceniodawca::find($zlecenie->zleceniodawca_id)->nazwa}}</h3>
 <p><b>Rodzaj usługi</b>: {{$zlecenie->rodzaj_uslugi}}</p>
 <p><b>Rodzaj instalacji</b>: {{$zlecenie->rodzaj_instalacji}}</p>
 <p><b>Ilość kilometrów</b>: {{$zlecenie->kilometry}}</p>
 <p><b>Koszt kilometrów</b>: {{$zlecenie->kilometry_koszt}}</p>
 <p><b>Opis</b>: {{$zlecenie->opis}}</p>
+
+<hr>
+
+
+<br><br>
+@if (!$zlecenie->obiekt_id)
+<form action="/dodajobiekt"  class="ui form" method="POST">
+        @csrf
+        
+       <input name="idzlec" type="hidden" value="{{$zlecenie->id}}">
+       <select name="idobiektu" >
+@foreach (\DB::table('obiekty')->select('*')->where('zleceniodawca_id', '=', $zlecenie->zleceniodawca_id)->get() as $obiekt)
+
+<option value="{{$obiekt->id}}">{{$obiekt->nazwa}}::::{{$obiekt->miejscowosc}}::{{$obiekt->ulica}}</option> 
+@endforeach
+</select>
+<button type="submit"  class="ui button red">Dodaj obiekt zleceniodawcy</button>        
+</form> 
+
+@else
+<b>Obiekt:</b>
+@foreach  (\DB::table('obiekty')->select('*')->where('id', '=', $zlecenie->obiekt_id)->get() as $obiekt)
+{{$obiekt->nazwa}} :: {{$obiekt->miejscowosc}} :: {{$obiekt->ulica}} ::{{$obiekt->nrdomulokalu}} :: 
+{{$obiekt->osoba_kontaktowa}} :: {{$obiekt->telefon}} 
+
+@endforeach
+@endif
+
+
+
+
+
 
 <hr>
 
@@ -42,18 +75,21 @@
 </hr>
 <h3>Materiały<a href="/materialy/dodajdo/{{$zlecenie->id}}"></h3><button class="ui icon red button"><i class="icon add "></i>Dodaj materiał/usługę</button> </a>
 <table class="ui celled striped table">
-<th>Lp</th><th>Nazwa</th><th>Ilość</th><th>Cena</th><th>Cena dla klienta</th><th>---</th>
+<th>Lp</th><th>Nazwa</th><th>Ilość</th><th>Jednostka</th><th>Cena</th><th>Cena dla klienta</th><th>---</th>
 @foreach ($materialy as $material)
 <tr>
 <td>{{$material->id}}</td><td>{{$material->nazwa}}</td>
 <td>
-        {{-- {{$pozycja=\App\Zlecenie::find($zlecenie->id)->materialy(\App\Material::find($material->id))->get()}} --}}
+                {{$material->pivot->ilosc}}
 </td>
 <td>
-        {{-- {{$pozycja=\App\Zlecenie::find($zlecenie->id)->materialy($material->id)->get()}} --}}
+                {{$material->pivot->jednostka}}
 </td>
-<th>Cena dla klienta</th>
-<td><a href="/materialy/odlacz/{{$material->id}}">Usuń pozycję</a></td>
+<td>
+                {{$material->pivot->cena_materialu}}
+</td>
+<th>{{$material->pivot->cena_dla_klienta}}</th>
+<td><a href="/materialy/odlacz/{{$material->id}}/{{$zlecenie->id}}/{{$material->pivot->id}}">Usuń pozycję</a></td>
 </tr>
 @endforeach
 </table>

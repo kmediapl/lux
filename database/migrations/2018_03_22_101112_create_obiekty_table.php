@@ -20,9 +20,9 @@ class CreateObiektyTable extends Migration
             $table->string('nrdomulokalu');
             $table->string('kodpocztowy');
             $table->string('miejscowosc');
+            $table->string('osoba_kontaktowa')->nullable();;
             $table->string('telefon');
             $table->string('uwagi');
-            
             $table->integer('zleceniodawca_id')->unsigned();
             $table->timestamps();
         });

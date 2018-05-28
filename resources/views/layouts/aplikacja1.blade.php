@@ -154,6 +154,34 @@
     }
     }
     });
+    $('#example4').calendar({ampm: false,
+    text: {
+    months: ['Styczeń', 'Luty', 'Marzec', 'Kwieciń', 'Maj', 'Czerwiec', 
+    'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']},
+    formatter: {
+    date: function (date, settings) {
+      if (!date) return '';
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      return year + '-' + month + '-' + day ;
+    }
+    }
+    });
+    $('#example5').calendar({ampm: false,
+    text: {
+    months: ['Styczeń', 'Luty', 'Marzec', 'Kwieciń', 'Maj', 'Czerwiec', 
+    'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']},
+    formatter: {
+    date: function (date, settings) {
+      if (!date) return '';
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      return year + '-' + month + '-' + day ;
+    }
+    }
+    });
   $('.ui.selection.dropdown')
   .dropdown()
 ;

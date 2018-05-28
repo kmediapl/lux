@@ -67,7 +67,8 @@ class PracownicyController extends Controller
         }
         else {
             \DB::table('users')->insert([
-                ['name' => $nazwa  ,'imie' => $request->imie , 'nazwisko' => $request->nazwisko ,'password' => bcrypt($request->haslo), 'email'=> $request->email]
+                ['name' => $nazwa  ,'imie' => $request->imie , 'nazwisko' => $request->nazwisko ,'password' => bcrypt($request->haslo)
+                , 'email'=> $request->email, 'stawka_za_godzine'=>$request->stawka_za_godzine]
             ]);
             return redirect('/pracownicy');
         }

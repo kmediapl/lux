@@ -13,7 +13,7 @@
 
 //zlecenia
 
-Route::get('/', 'ZleceniaController@index');
+Route::get('/', 'ZleceniaController@index')->middleware('admin')->name('zlecenia');;
 Route::get('/zlecenia', 'ZleceniaController@index');
 Route::get('/zlecenia/{id}', 'ZleceniaController@show');
 Route::get('/zlecenie/dodaj', 'ZleceniaController@create');
@@ -22,6 +22,9 @@ Route::delete('/zlecenia/{id}', 'ZleceniaController@destroy');
 Route::get('/zlecenia/edytuj/{id}', 'ZleceniaController@edit');
 Route::put('/zlecenia/update/{id}', 'ZleceniaController@update');
 Route::get('/zrealizujzlecenie/{id}', 'ZleceniaController@zrealizujzlecenie');
+Route::post('/dodajobiekt', 'ZleceniaController@dodajobiekt');
+Route::get('/szukajzlecenia','ZleceniaController@szukaj');
+
 
 Route::get('/plik','ZleceniaController@plik');
 Route::post('/uploads','ZleceniaController@uploads');

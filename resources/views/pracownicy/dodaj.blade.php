@@ -24,10 +24,16 @@
         {{Form::text('nazwisko',null,['class' => 'form-control', 'placeholder' => 'Podaj nazwisko pracownika'])}}
         </div>
     </div>
+    <div class="two fields">
 <div class="field">
-        {{Form::label('Adres email', 'Adres email')}}
+        {{Form::label('email', 'Adres email')}}
         {{Form::text('email',null,['class' => 'form-control', 'placeholder' => 'Podaj email'])}}
         </div>
+        <div class="field">
+                {{Form::label('stawka_za_godzine', 'Stawka godzinowa')}}
+                {{Form::text('stawka_za_godzine',null,['class' => 'form-control', 'placeholder' => 'Podaj stawkę godzinową'])}}
+                </div>
+    </div>
         <div class="two fields">
                 <div class="field">
                         {{Form::label('haslo', 'Hasło')}}

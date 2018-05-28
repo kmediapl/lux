@@ -5,6 +5,16 @@
         <div class="ui segment">
         <h1>Zlecenie: {{$zlecenie->nazwa}} z dnia {{$zlecenie->data_zlecenia}}</h1>
         <a href="/zlecenia/{{$idzlec}}"><button class="ui green icon button"><i class="reply icon"></i>Wróć do zlecenia</button></a>
+      
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <table class="ui celled striped table">
             <th>Nazwa materiału / usługi</th><th>Ilość</th><th>Jednostka</th>
             <th>Cena</th><th>Cena dla klienta</th><th>---</th><th>---</th>
