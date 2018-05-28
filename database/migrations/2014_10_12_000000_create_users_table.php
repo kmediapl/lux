@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
           $table->integer('stawka_za_godzine')->nullable();
           $table->string('uwagi')->nullable();
           $table->boolean('isadmin')->nullable();
+          $table->boolean('czy_aktywny')->nullable();
           $table->rememberToken();
             $table->timestamps();
         });

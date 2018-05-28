@@ -95,6 +95,20 @@
                         <a class="item" href="/raporty/oddo">Zlecenia od do</a>
                       </div>
                     </div>
+
+
+                    <a class="header item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Wyloguj') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
+
+
+
         </div>
       </div>
               <br>

@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
          $pracownik->nazwisko = $faker->company;
          $pracownik->uwagi = $faker->text(100);
          $pracownik->stanowisko= $faker->text(20);
+         $pracownik->czy_aktywny=1;
 
 
 

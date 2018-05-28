@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
          MaterialyTableSeeder::class,
          ObiektyTableSeeder::class,
          RodzajeinstalacjiTableSeeder::class,
-         RodzajeuslugTableSeeder::class
+         RodzajeuslugTableSeeder::class,
+         AdminTableSeeder::class
      ]);
     }
 }
